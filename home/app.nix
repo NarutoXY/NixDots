@@ -6,6 +6,7 @@
     killall
     gotop
     xdg-user-dirs
+		gnome3.dconf
 
     ##### NETWORK TOOLS ##### -----------
     curl
