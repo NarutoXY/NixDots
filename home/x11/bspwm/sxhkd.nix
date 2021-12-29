@@ -75,14 +75,14 @@ in
 
       # screenshot selection
       "{_, shift, alt} + Print" = "flameshot {gui -p, full -p,full -d 5000 -p} /home/naruto/pics/ss";
-			# screencast region
+      # screencast region
       # "alt + Print" = "${s}/scrrec -s ~/vids/scrrec/$(date +%F-%T).mp4";
       # powermenu
       "super + p" = "${s}/powermenu";
       # window switcher
       "alt + Tab" = "${s}/windmnu";
-			# emoji launcher
-			"super + e" = "rofi -show emoji";
+      # emoji launcher
+      "super + e" = "rofi -show emoji";
 
       # audio controls
 

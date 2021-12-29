@@ -11,11 +11,11 @@ in
 {
   programs.alacritty = {
     enable = true;
-		settings = {
+    settings = {
       env = {
-     		"TERM" = "xterm-256color";
-			};
-			window = {
+        "TERM" = "xterm-256color";
+      };
+      window = {
         decorations = "none";
         dynamic_padding = true;
         padding = {
@@ -32,11 +32,11 @@ in
         bold.family = font;
         italic.family = font;
         size = 13;
-				use_thin_strokes = true;
+        use_thin_strokes = true;
         offset.y = -1;
-    		glyph_offset.y = -1;
-			};
-			cursor.style = "Block";
+        glyph_offset.y = -1;
+      };
+      cursor.style = "Block";
       draw_bold_text_with_bright_colors = false;
       colors = rec {
         primary = {
@@ -56,7 +56,7 @@ in
         bright = normal // { black = acolors.base03; white = acolors.base06; };
       };
       background_opacity = 0.9;
-			shell.program = "zsh";
+      shell.program = "zsh";
     };
   };
 
@@ -67,11 +67,11 @@ in
     settings = {
       scrollback_lines = 10000;
       window_padding_width = 4;
-			shell = "zsh";
+      shell = "zsh";
       enable_audio_bell = "no";
-			update_check_interval = 0;
+      update_check_interval = 0;
 
-			# colors
+      # colors
       background_opacity = "0.7";
       foreground = colors.base00;
       background = colors.base05;
@@ -99,7 +99,7 @@ in
       # white
       color7 = colors.base05;
       color15 = colors.base06;
-		};
+    };
   };
 }
 

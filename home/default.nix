@@ -9,18 +9,18 @@ let
 in
 
 {
-	# nixpkgs config
-	nixpkgs = {
-		config.allowUnfree = true;
-		overlays = overlays;
-	};
+  # nixpkgs config
+  nixpkgs = {
+    config.allowUnfree = true;
+    inherit overlays;
+  };
 
-	imports = [
-		./app.nix
-		./cli.nix # base config
+  imports = [
+    ./app.nix
+    ./cli.nix # base config
     ./terminal.nix
-  	./x11/bspwm	# x11 config
-	];
+    ./x11/bspwm # x11 config
+  ];
 
   gtk = {
     enable = true;
@@ -35,15 +35,15 @@ in
       package = pkgs.zafiro-icons;
     };
 
-		gtk3.extraConfig = {
-      gtk-theme-name="tokyodark";
-		};
+    gtk3.extraConfig = {
+      gtk-theme-name = "tokyodark";
+    };
   };
 
   programs = {
     firefox = {
       enable = true;
-			package = pkgs.firefox-beta-bin;
+      package = pkgs.firefox-beta-bin;
       profiles.naruto = { };
     };
 

@@ -3,13 +3,13 @@
 {
   home.packages = [ pkgs.pure-prompt ];
 
-	programs.zoxide = { 
-		enable = true;
-		enableZshIntegration = true;
-	};
+  programs.zoxide = {
+    enable = true;
+    enableZshIntegration = true;
+  };
 
-	programs.zsh = {
-  	enable = true;
+  programs.zsh = {
+    enable = true;
     enableSyntaxHighlighting = true;
     enableAutosuggestions = true;
     autocd = true;
@@ -28,7 +28,7 @@
       expireDuplicatesFirst = true;
       path = "${config.xdg.dataHome}/zsh_history";
     };
-    
+
     initExtraBeforeCompInit = ''
       # p10k instant prompt
       local P10K_INSTANT_PROMPT="${config.xdg.cacheHome}/p10k-instant-prompt-''${(%):-%n}.zsh"
@@ -48,7 +48,7 @@
       }
     ];
 
-		initExtra = ''
+    initExtra = ''
       # autoloads
       autoload -U history-search-end
 
@@ -75,12 +75,12 @@
       ${builtins.readFile ./nix-completions.sh}
     '';
     shellAliases = {
-			switch = "home-manager switch";
-			rebuid = "sudo nixos-rebuild switch";
-			ls = "exa -laHG --icons";
-			top = "gotop";
-			v = "nvim";
-		};
+      switch = "home-manager switch";
+      rebuid = "sudo nixos-rebuild switch";
+      ls = "exa -laHG --icons";
+      top = "gotop";
+      v = "nvim";
+    };
 
     shellGlobalAliases = { exa = "exa --icons --git"; };
   };

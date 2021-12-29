@@ -1,7 +1,7 @@
 { config, pkgs, lib, ... }:
 
 {
-	fonts = {
+  fonts = {
     fonts = with pkgs; [
       # icon fonts
       material-design-icons
@@ -11,9 +11,9 @@
       noto-fonts-cjk
       noto-fonts-emoji
       roboto
-			cantarell-fonts
-			cascadia-code
-			victor-mono
+      cantarell-fonts
+      cascadia-code
+      victor-mono
 
       # nerdfonts
       (nerdfonts.override { fonts = [ "FiraCode" "JetBrainsMono" ]; })

@@ -6,8 +6,8 @@
   imports = [
     # shell config
     ./shell
-		./app.nix
-	];
+    ./app.nix
+  ];
 
   programs.home-manager.enable = true;
   home = {
@@ -18,14 +18,14 @@
 
   xdg.enable = true;
 
-	services = {
-		gpg-agent = {
-			enable = true;
-			extraConfig = ''
-      	pinentry-program ${pkgs.pinentry.qt}/bin/pinentry
-    	'';
-		};
-	};
+  services = {
+    gpg-agent = {
+      enable = true;
+      extraConfig = ''
+        pinentry-program ${pkgs.pinentry.qt}/bin/pinentry
+      '';
+    };
+  };
 
   programs = {
     git = {

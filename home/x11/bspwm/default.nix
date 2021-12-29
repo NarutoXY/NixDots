@@ -20,7 +20,7 @@ in
   home.packages = with pkgs; [
     dunst # for dunstctl
     maim
-		playerctl
+    playerctl
     xclip
     xdotool
     xorg.xkill
@@ -53,15 +53,15 @@ in
         "Vivaldi-stable" = { desktop = "^2"; };
         "Code" = { desktop = "^3"; };
       };
-			startupPrograms = [ 
-				"systemctl --user restart polybar" 
-				"sh ~/.fehbg" 
-				"eww daemon" 
-				"picom --config ~/.config/picom/picom.conf"
-			]; # Do not kill me please for these many startup Programs :pleading_face:
-			monitors = {
-			"VGA1" = [ "1" "2" "3" "4" ];
-			};
+      startupPrograms = [
+        "systemctl --user restart polybar"
+        "sh ~/.fehbg"
+        "eww daemon"
+        "picom --config ~/.config/picom/picom.conf"
+      ]; # Do not kill me please for these many startup Programs :pleading_face:
+      monitors = {
+        "VGA1" = [ "1" "2" "3" "4" ];
+      };
       settings = {
         border_width = 2;
         window_gap = 25;
@@ -76,8 +76,8 @@ in
         gapless_monocle = true;
         single_monocle = true;
 
-				top_padding = 35;
-				bottom_padding = 0;
+        top_padding = 35;
+        bottom_padding = 0;
       };
     };
   };
