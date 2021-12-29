@@ -58,7 +58,7 @@
             {
               home-manager = {
                 inherit extraSpecialArgs;
-                useGlobalPkgs = true;
+                useGlobalPkgs = false;
                 useUserPackages = true;
                 users.naruto = import ./home;
               };
