@@ -23,6 +23,8 @@ in
 
       # quit bspwm normally
       "super + ctrl + q" = "bspc quit";
+      # restart bspwm
+			"super + ctrl + r" = "bspc wm -r";
       # close/kill
       "super + {_,shift + }q" = "bspc node -{c,k}";
       # monocle layout
@@ -89,7 +91,7 @@ in
       # play/pause
       "{Pause,XF86AudioPlay}" = "playerctl play-pause";
       # next/prev song
-      "super + shift + {Right,Left}" = "playerctl {next,previous}";
+      "XF86Audio{Next,Prev}" = "playerctl {next,previous}";
       # toggle repeat/shuffle
       "super + alt + {r,z}" = "playerctl {loop,shuffle}";
       # volume up/down
