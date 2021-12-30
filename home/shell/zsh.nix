@@ -9,8 +9,15 @@
   };
 
 	programs.starship = {
-			enable = true;
-			enableZshIntegration = true;
+		enable = true;
+		enableZshIntegration = true;
+		settings = {
+			add_newline = true;
+			character = {
+				success_symbol = "[ ](bold green)";
+			};
+			scan_timeout = 100;
+		};
 	};
 
   programs.zsh = {
@@ -77,3 +84,5 @@
     shellGlobalAliases = { exa = "exa --icons --git"; };
   };
 }
+
+# vim:set filetype=nix:
