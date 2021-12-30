@@ -71,6 +71,8 @@
       zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
       zstyle ':completion:*' verbose true
       _comp_options+=(globdots)
+		
+	  POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true
 
       ${builtins.readFile ./nix-completions.sh}
     '';

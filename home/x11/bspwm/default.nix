@@ -19,15 +19,13 @@ in
   # X specific programs
   home.packages = with pkgs; [
     dunst # for dunstctl
-    maim
     playerctl
     xclip
     xdotool
     xorg.xkill
     xdragon # file drag n drop
-  ];
-
-  programs.feh.enable = true;
+  	feh
+	];
 
   services = {
     flameshot.enable = true;
