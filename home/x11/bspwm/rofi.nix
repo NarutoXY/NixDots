@@ -50,7 +50,7 @@ in
 								placeholder-color = mkLiteral "@fg";
 							};
 						inputbar = {
-								children = map mkLiteral "[ prompt, entry ]";
+								children = map mkLiteral [ "prompt", "entry" ];
 								background-color = mkLiteral "@button";
 								text-color = mkLiteral "@fg";
 								expand = false;
@@ -65,7 +65,7 @@ in
 								layout = mkLiteral "vertical";
 							};
 						mainbox = {
-								children = map mkLiteral "[ inputbar, listview ]";
+								children = map mkLiteral [ "inputbar", "listview" ];
 								spacing = mkLiteral "2%";
 								padding = mkLiteral "2% 1% 2% 1%";
 							};
