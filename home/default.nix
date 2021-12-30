@@ -32,7 +32,7 @@ in
 
     gtk3.extraConfig = {
       gtk-theme-name = "tokyodark";
-			gtk-font-name = "SF Mono";
+			gtk-font-name = "SF Pro Display";
 		};
   };
 
