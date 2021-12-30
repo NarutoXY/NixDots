@@ -54,20 +54,21 @@ in
       startupPrograms = [
         "systemctl --user restart polybar"
 				"pgrep -x sxhkd >/dev/null || sxhkd"
+				"pgrep -x flameshot >/dev/null || flameshot"
         "sh ~/.fehbg"
         "eww daemon"
         #"picom --config ~/.config/picom/picom.conf"
       	"xsetroot -cursor_name left_ptr"
 			]; # Do not kill me please for these many startup Programs :pleading_face:
       monitors = {
-        "VGA1" = [ "1" "2" "3" "4" ];
+        "VGA1" = [ "1" "2" "3" "4" "5" ];
       };
       settings = {
         border_width = 2;
         window_gap = 25;
 
-        active_border_color = colors.base08;
-        focused_border_color = colors.base02;
+        active_border_color = colors.base02;
+        focused_border_color = colors.base08;
         normal_border_color = colors.base0A;
         presel_feedback_color = colors.base0B;
 
