@@ -15,13 +15,13 @@ in
 
       extraConfig = {
         show-icons = true;
-        icon-theme = "Papirus";
-        display-drun = "";
-        display-combi = "";
-        drun-display-format = "{name}";
+				modi = "window, drun, run";
+        display-window = "";
+        display-drun = "";
+        drun-display-format = "{icon} {name}";
       };
 
-      font = "Roboto 9";
+      font = "SF Mono 9";
 
       theme =
         let
