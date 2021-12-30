@@ -12,7 +12,7 @@ in {
       package = pkgs.rofi.override { plugins = [ pkgs.rofi-emoji ]; };
 
       extraConfig = {
-        show-icons = true;
+        show-icons = false;
         modi = "window,drun,run";
         display-window = "";
         display-drun = "";
@@ -24,10 +24,13 @@ in {
       theme = let inherit (config.lib.formats.rasi) mkLiteral;
       in {
         "*" = {
-          bg = mkLiteral "${colors.base00}";
+          bg = mkLiteral "${colors.base01}";
           fg = mkLiteral "${colors.base05}";
-          button = mkLiteral "${colors.base04}";
-        };
+          button = mkLiteral "${colors.base03}";
+
+					background-color = mkLiteral "@bg";
+					text-color = mkLiteral "@fg";
+				};
         window = {
           transparency = "real";
           border-radius = mkLiteral "7px";
