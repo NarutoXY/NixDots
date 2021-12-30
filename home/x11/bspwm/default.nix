@@ -56,8 +56,9 @@ in
 				"pgrep -x sxhkd >/dev/null || sxhkd"
         "sh ~/.fehbg"
         "eww daemon"
-        "picom --config ~/.config/picom/picom.conf"
-      ]; # Do not kill me please for these many startup Programs :pleading_face:
+        #"picom --config ~/.config/picom/picom.conf"
+      	"xsetroot -cursor_name left_ptr"
+			]; # Do not kill me please for these many startup Programs :pleading_face:
       monitors = {
         "VGA1" = [ "1" "2" "3" "4" ];
       };

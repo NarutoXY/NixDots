@@ -25,11 +25,6 @@ in
   gtk = {
     enable = true;
 
-    font = {
-      name = "Cantarell";
-      package = pkgs.cantarell-fonts;
-    };
-
     iconTheme = {
       name = "Zafiro-icons";
       package = pkgs.zafiro-icons;
@@ -37,7 +32,8 @@ in
 
     gtk3.extraConfig = {
       gtk-theme-name = "tokyodark";
-    };
+			gtk-font-name = "SF Mono";
+		};
   };
 
   programs = {

@@ -4,7 +4,7 @@
 
 let
   inherit (self.lib) mapAttrs x0 x;
-  font = "OperatorMono Nerd Font";
+  font = "SF Mono";
   acolors = mapAttrs (n: v: x0 v) nix-colors.colors;
   colors = mapAttrs (n: v: x v) nix-colors.colors;
 in
@@ -73,8 +73,8 @@ in
 
       # colors
       background_opacity = "0.7";
-      foreground = colors.base00;
-      background = colors.base05;
+      foreground = colors.base05;
+      background = colors.base00;
       # black
       color0 = colors.base02;
       color8 = colors.base03;

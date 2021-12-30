@@ -8,6 +8,11 @@
     enableZshIntegration = true;
   };
 
+	programs.starship = {
+			enable = true;
+			enableZshIntegration = true;
+	};
+
   programs.zsh = {
     enable = true;
     enableSyntaxHighlighting = true;
@@ -35,19 +40,6 @@
       [[ ! -r "$P10K_INSTANT_PROMPT" ]] || source "$P10K_INSTANT_PROMPT"
     '';
 
-    plugins = with pkgs; [
-      {
-        file = "powerlevel10k.zsh-theme";
-        name = "powerlevel10k";
-        src = "${zsh-powerlevel10k}/share/zsh-powerlevel10k";
-      }
-      {
-        file = "p10k.zsh";
-        name = "powerlevel10k-config";
-        src = ./p10k.zsh; # Some directory containing your p10k.zsh file
-      }
-    ];
-
     initExtra = ''
       # autoloads
       autoload -U history-search-end
@@ -72,8 +64,6 @@
       zstyle ':completion:*' verbose true
       _comp_options+=(globdots)
 		
-	  POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true
-
       ${builtins.readFile ./nix-completions.sh}
     '';
     shellAliases = {
