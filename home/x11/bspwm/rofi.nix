@@ -4,6 +4,7 @@
 
 let
   inherit (self.lib) mapAttrs xrgba x;
+  colors = mapAttrs (n: v: x v) nix-colors.colors;
 in
 {
   programs = {
