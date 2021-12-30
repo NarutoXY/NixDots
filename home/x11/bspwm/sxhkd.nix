@@ -93,9 +93,9 @@ in
       # toggle repeat/shuffle
       "super + alt + {r,z}" = "playerctl {loop,shuffle}";
       # volume up/down
-      "XF86Audio{Raise,Lower}Volume" = "amixer --change-volume {+,-}5";
+      "XF86Audio{Raise,Lower}Volume" = "amixer -q set Master 5%{+,-}";
       # toggle mute
-      "XF86AudioMute" = "amixer --toggle-mute";
-    };
+      "XF86AudioMute" = "amixer set Master toggle";
+		};
   };
 }
