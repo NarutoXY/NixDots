@@ -53,6 +53,7 @@ in
       };
       startupPrograms = [
         "systemctl --user restart polybar"
+				"pgrep -x sxhkd >/dev/null || sxhkd"
         "sh ~/.fehbg"
         "eww daemon"
         "picom --config ~/.config/picom/picom.conf"

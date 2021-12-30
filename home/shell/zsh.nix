@@ -77,11 +77,11 @@
       ${builtins.readFile ./nix-completions.sh}
     '';
     shellAliases = {
-      switch = "home-manager switch";
-      rebuid = "sudo nixos-rebuild switch";
+      switch = "sudo nixos-rebuild switch --flake ~/.config/nixpkgs/";
       ls = "exa -laHG --icons";
       top = "gotop";
       v = "nvim";
+      nv = "nvim";
     };
 
     shellGlobalAliases = { exa = "exa --icons --git"; };
