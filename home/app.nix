@@ -46,7 +46,6 @@
     rm-improved
 
     ##### MISC UTILS ##### --------------
-    fzf
     glow
 
     ##### DEVELOP ##### -----------------

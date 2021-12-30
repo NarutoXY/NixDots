@@ -22,7 +22,7 @@
     gpg-agent = {
       enable = true;
       extraConfig = ''
-        pinentry-program ${pkgs.pinentry.qt}/bin/pinentry
+        pinentry-program ${pkgs.pinentry}/bin/pinentry
       '';
     };
   };

@@ -12,7 +12,7 @@
   boot.loader.efi.canTouchEfiVariables = true;
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
-
+	environment.pathsToLink = [ "/share/zsh" ];
   nix = {
     extraOptions = ''
       keep-outputs = true
