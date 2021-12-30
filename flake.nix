@@ -4,11 +4,11 @@
   inputs = {
 
     # UTILS
-    # utils = {
-    #   url = "github:gytis-ivaskevicius/flake-utils-plus";
-    #   inputs.flake-utils.follows = "fu";
-    # };
-    # fu.url = "github:numtide/flake-utils";
+    utils = {
+      url = "github:gytis-ivaskevicius/flake-utils-plus";
+      inputs.flake-utils.follows = "fu";
+    };
+    fu.url = "github:numtide/flake-utils";
 
     # CORE DEPS
     nixpkgs = { url = "github:nixos/nixpkgs/nixos-unstable"; };
