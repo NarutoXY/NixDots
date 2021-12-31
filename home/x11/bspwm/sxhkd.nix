@@ -13,7 +13,7 @@ in
       # start terminal
       "super + {_, shift} + Return" = "{kitty, alacritty}";
       # application launcher
-      "super + @space" = "rofi -show drun";
+      "super + @space" = "${s}/appmnu";
       # reload sxhkd
       "super + Escape" = "pkill -USR1 -x sxhkd";
       # pause/resume notifications
@@ -82,7 +82,7 @@ in
       # powermenu
       "super + p" = "${s}/powermenu";
       # window switcher
-      "alt + Tab" = "rofi -show window";
+      "alt + Tab" = "${s}/winmnu";
       # emoji launcher
       "super + e" = "rofi -show emoji";
 
