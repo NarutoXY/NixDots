@@ -31,7 +31,7 @@
 
     ##### MULTIMEDIA ##### --------------
     mpv
-    sxiv
+		ytmdesktop
 
     ##### CHEATSHEET ##### --------------
     tealdeer
