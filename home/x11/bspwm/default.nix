@@ -38,7 +38,7 @@ in
     scriptPath = ".xsession-hm";
     pointerCursor = {
       package = pkgs.bibata-cursors;
-      name = "Bibata_Oil";
+      name = "Bibata-Modern-Ice";
       size = 24;
     };
 
