@@ -11,7 +11,7 @@ in
     #./autorandr.nix
     ./dunst.nix
     #./picom.nix
-    ./polybar
+    ./polybar.nix
     ./rofi.nix
     ./sxhkd.nix
   ];
@@ -37,8 +37,8 @@ in
     # to be able to use system-configured sessions alongside HM ones
     scriptPath = ".xsession-hm";
     pointerCursor = {
-      package = pkgs.quintom-cursor-theme;
-      name = "Quintom_Ink";
+      package = pkgs.bibata-cursors;
+      name = "Bibata_Oil";
       size = 24;
     };
 

@@ -49,7 +49,9 @@
         "--exact"
       ];
     };
-
+	gpg = {
+		enable = true;
+	};
     ssh.enable = true;
   };
 }
