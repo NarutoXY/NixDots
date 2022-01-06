@@ -64,7 +64,10 @@ in
     enable = true;
     font.name = font;
     font.size = 12;
-    settings = {
+    extraConfig = ''
+		symbol_map U+f101-U+f208 nonicons
+	'';
+	settings = {
       scrollback_lines = 10000;
       window_padding_width = 4;
       shell = "zsh";
