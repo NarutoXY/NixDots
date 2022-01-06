@@ -32,10 +32,10 @@
       enable = true;
       delta.enable = true;
       ignores = [ "*~" "*.swp" "result" "dist" ];
-      # signing = {
-      #   key = "3AC82B48170331D3";
-      #   signByDefault = true;
-      # };
+      signing = {
+        key = "BA2B56A17A1FC0FA";
+        signByDefault = true;
+      };
       userEmail = "github@sandy007.anonaddy.com";
       userName = "Astro (Naruto Uzumaki)";
     };
