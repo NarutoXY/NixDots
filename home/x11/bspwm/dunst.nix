@@ -1,5 +1,9 @@
-{ config, pkgs, ... }:
+{ nix-colors, config, pkgs, self,  ... }:
 
+let
+  inherit (self.lib) mapAttrs x;
+  colors = mapAttrs (n: v: x v) nix-colors.colors;
+in
 {
   # notification daemon
   services.dunst = {
@@ -11,9 +15,9 @@
     settings = {
       global = {
         alignment = "center";
-        corner_radius = 10;
+        corner_radius = 5;
         follow = "mouse";
-        font = "Cantarell 10";
+        font = "Lato 10";
         format = "<b>%s</b>\\n%b";
         frame_width = 2;
         geometry = "250x200-15+50";
@@ -38,19 +42,19 @@
       };
       fullscreen_delay_everything = { fullscreen = "delay"; };
       urgency_critical = {
-        background = "#16161c";
-        foreground = "#fdf0ed";
-        frame_color = "#e95678";
+        background = colors.base01;
+        foreground = colors.base05;
+        frame_color = colors.base08;
       };
       urgency_low = {
-        background = "#16161c";
-        foreground = "#fdf0ed";
-        frame_color = "#29d398";
+        background = colors.base01;
+        foreground = colors.base05;
+        frame_color = colors.base0A;
       };
       urgency_normal = {
-        background = "#16161c";
-        foreground = "#fdf0ed";
-        frame_color = "#fab795";
+        background = colors.base01;
+        foreground = colors.base05;
+        frame_color = colors.base0B;
       };
     };
   };

@@ -4,7 +4,7 @@
 
 let
   inherit (self.lib) mapAttrs x0 x;
-  font = "SF Mono";
+  font = "JetBrainsMono Nerd Font";
   acolors = mapAttrs (n: v: x0 v) nix-colors.colors;
   colors = mapAttrs (n: v: x v) nix-colors.colors;
 in
@@ -99,7 +99,15 @@ in
       # white
       color7 = colors.base05;
       color15 = colors.base06;
-    };
+			
+			# tabs
+			active_tab_foreground = colors.base0C;
+			active_tab_background = colors.base01;
+			active_tab_font_style = "normal";
+			inactive_tab_foreground = colors.base04;
+			inactive_tab_background = colors.base01;
+			inactive_tab_font_style = "normal";
+		};
   };
 }
 

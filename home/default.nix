@@ -29,11 +29,16 @@ in
       name = "Zafiro-icons";
       package = pkgs.zafiro-icons;
     };
+	
+	font = {
+		name = "Lato";
+		package = pkgs.lato;
+	};
 
     gtk3.extraConfig = {
-      gtk-theme-name = "tokyodark";
-			gtk-font-name = "SF Pro Display";
-		};
+      gtk-theme-name = "catppuccin";
+	  gtk-font-name = "Sou";
+	};
   };
 
   programs = {

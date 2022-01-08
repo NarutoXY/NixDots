@@ -23,7 +23,7 @@
     gc = {
       automatic = true;
       dates = "weekly";
-      options = "--delete-older-than 2d";
+      options = "--delete-older-than 1d";
     };
   };
 
@@ -49,6 +49,8 @@
       displayManager = {
         defaultSession = "none+bspwm";
         startx.enable = true;
+        autoLogin.enable = true;
+        autoLogin.user = "naruto";
       };
       windowManager.bspwm.enable = true;
       desktopManager.xterm.enable = false;
@@ -70,6 +72,10 @@
       settings = {
         default_session = {
           command = "${lib.makeBinPath [pkgs.greetd.tuigreet] }/tuigreet --time --cmd startx";
+          user = "naruto";
+        };
+        initial_session = {
+          command = "startx";
           user = "naruto";
         };
       };
@@ -112,6 +118,39 @@
       dockerCompat = true;
     };
   };
+  
+  ## #### SERVERS ####
+  ## services.nextcloud = {
+  ##   enable = true;
+  ##   hostName = "nextcloud.tld";
+  ##   config = {
+  ##     dbtype = "pgsql";
+  ##     dbuser = "nextcloud";
+  ##     dbhost = "/run/postgresql"; # nextcloud will add /.s.PGSQL.5432 by itself
+  ##     dbname = "nextcloud";
+  ##     adminpassFile = "/path/to/admin-pass-file";
+  ##     adminuser = "root";
+  ##   };
+  ## };
+
+  services.postgresql = {
+    enable = true;
+    # ensureDatabases = [ "nextcloud" ];
+    ensureUsers = [
+    #  { name = "nextcloud";
+    #    ensurePermissions."DATABASE nextcloud" = "ALL PRIVILEGES";
+    #  }
+      { name = "naruto"; }
+    ];
+  };
+
+  ## # ensure that postgres is running *before* running the setup
+  ## systemd.services."nextcloud-setup" = {
+  ##   requires = ["postgresql.service"];
+  ##   after = ["postgresql.service"];
+  ## };
+
+  ## networking.firewall.allowedTCPPorts = [ 80 443 ];
 
   #### DANGER ZONE ####
   system.stateVersion = "21.05"; # Never ever change this ducks.

@@ -23,12 +23,23 @@ in
     xclip
     xdotool
     xorg.xkill
-    xdragon # file drag n drop
   	feh
-	];
+	  siduck76-st # hmm because it works on xorg
+    libnotify
+  ];
 
   services = {
-    flameshot.enable = true;
+    flameshot = {
+      enable = true;
+      settings = {
+        General = {
+          # userColors = [ colors.base01 colors.base05 colors.base09 colors.base08 colors.base0A colors.base0B colors.base0C "picker" ];
+          uiColor = colors.base0C;
+          contrastUiColor = colors.base0B;
+          drawColor = colors.base0B;
+        };
+        };
+      };
   };
 
   # manage X session
@@ -52,20 +63,15 @@ in
         "Code" = { desktop = "^3"; };
       };
       startupPrograms = [
-        "systemctl --user restart polybar"
-				"pgrep -x sxhkd >/dev/null || sxhkd"
-				"pgrep -x flameshot >/dev/null || flameshot"
         "sh ~/.fehbg"
         "eww daemon"
-        #"picom --config ~/.config/picom/picom.conf"
-      	"xsetroot -cursor_name left_ptr"
-			]; # Do not kill me please for these many startup Programs :pleading_face:
+			];
       monitors = {
         "VGA1" = [ "1" "2" "3" "4" "5" ];
       };
       settings = {
         border_width = 2;
-        window_gap = 25;
+        window_gap = 5;
 
         active_border_color = colors.base02;
         focused_border_color = colors.base08;
@@ -112,5 +118,18 @@ in
     # white
     "*.color7" = colors.base06;
     "*.color15" = colors.base07;
+    
+    # Xft
+    "Xft.antialias" =  1;
+    "Xft.hiniting" = 1;
+    "Xft.autohint" = 0;
+    "Xft.hintstyle" = "hintslight";
+    "Xft.rgba" = "rgb";
+    "Xft.lcdfilter" = "lcddefault";
+
+    # ST
+    "st.borderpx" = 15;
+    "st.font" = "JetBrainsMono Nerd Font:style:medium:pixelsize=15";
+    # "st.alpha" = 0.8;
   };
 }

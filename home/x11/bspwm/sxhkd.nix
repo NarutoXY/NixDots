@@ -14,6 +14,7 @@ in
       "super + {_, shift} + Return" = "{kitty, alacritty}";
       # application launcher
       "super + @space" = "${s}/appmnu";
+      "Menu" = "${s}/appmnu";
       # reload sxhkd
       "super + Escape" = "pkill -USR1 -x sxhkd";
       # pause/resume notifications

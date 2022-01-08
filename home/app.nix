@@ -6,7 +6,13 @@
     killall
     gotop
     xdg-user-dirs
-		gnome3.dconf
+	
+	###########################################
+	##### DONT DELETE THIS PACKAGE PLEASE #####
+	###########################################
+	gnome3.dconf
+	###########################################
+	###########################################
 
     ##### NETWORK TOOLS ##### -----------
     curl
@@ -18,7 +24,7 @@
 
     ##### FILE MANIPULATION TOOLS ##### -
     trash-cli
-    xfceUnstable.thunar
+    pcmanfm
     unzip
 
     ##### SHELLS ##### ------------------
@@ -31,7 +37,6 @@
 
     ##### MULTIMEDIA ##### --------------
     mpv
-		ytmdesktop
 
     ##### CHEATSHEET ##### --------------
     tealdeer
@@ -74,11 +79,27 @@
     nodejs
     nodePackages.pnpm
     jq
-    # PYTHON
+	  nodePackages.vscode-langservers-extracted
+	  nodePackages."@tailwindcss/language-server"
+    # nodePackages."@volar/server"
+	  nodePackages.node2nix
+    nodePackages.vim-language-server
+	  nodePackages.yaml-language-server
+	  nodePackages.bash-language-server
+	  nodePackages.svelte-language-server
+    nodePackages.typescript
+	  nodePackages.typescript-language-server
+    nodePackages.dockerfile-language-server-nodejs
+	  go-langserver
+	# ZIG
+	zls
+	zig
+	# PYTHON
     python3
     python39Packages.pip
     pipenv
-    # RUBY
+    python-language-server
+	# RUBY
     ruby
     gem
     #JULIA
