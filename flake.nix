@@ -24,9 +24,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # PICOM
-    picom = { url = "github:yshui/picom"; flake = false; };
-
     # OVERLAY 
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
 
@@ -36,7 +33,7 @@
     let
       extraSpecialArgs = {
         inherit inputs self;
-        nix-colors = inputs.nix-colors.colorSchemes.rose-pine;
+        nix-colors = inputs.nix-colors.colorSchemes.tokyodark-terminal;
         overlays = [ inputs.neovim-nightly-overlay.overlay ];
       };
     in
