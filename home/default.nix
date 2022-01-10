@@ -16,6 +16,7 @@ in
   };
 
   imports = [
+    ./editors
     ./app.nix
     ./cli.nix # base config
     ./terminal.nix

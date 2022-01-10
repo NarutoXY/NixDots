@@ -28,18 +28,6 @@
   };
 
   programs = {
-    git = {
-      enable = true;
-      delta.enable = true;
-      ignores = [ "*~" "*.swp" "result" "dist" ];
-      signing = {
-        key = "BA2B56A17A1FC0FA";
-        signByDefault = true;
-      };
-      userEmail = "github@sandy007.anonaddy.com";
-      userName = "Astro (Naruto Uzumaki)";
-    };
-
     skim = {
       enable = true;
       enableZshIntegration = true;
