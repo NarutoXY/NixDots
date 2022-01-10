@@ -7,8 +7,7 @@
     viAlias = true;
     vimAlias = true;
     vimdiffAlias = true;
-    withNodeJS = true;
-    withRuby = true;
+    withRuby = false;
     withPython3 = true;
     package = pkgs.neovim;
   };
@@ -24,20 +23,20 @@
       dbaeumer.vscode-eslint
       ms-python.python
       ms-azuretools.vscode-docker
-      VisualStudioExptTeam.vscodeintellicode # Surprised its better than copilot
-      ritwickdey.LiveServer
+      # VisualStudioExptTeam.vscodeintellicode # Surprised its better than copilot
+      # ritwickdey.LiveServer
       eamodio.gitlens
-      PKief.material-icon-theme
+      pkief.material-icon-theme
       redhat.vscode-yaml
-      GitHub.vscode-pull-request-github
+      github.vscode-pull-request-github
       eg2.vscode-npm-script
-      EditorConfig.EditorConfig
+      editorConfig.EditorConfig
       wayou.vscode-todo-highlight
       hollowtree.vue-snippets
-      ritwickdey.live-sass
+      # ritwickdey.live-sass
       bradlc.vscode-tailwindcss
       svelte.svelte-vscode
-      Equinusocio.vsc-community-material-theme
+      equinusocio.vsc-community-material-theme
       rust-lang.rust
       codezombiech.gitignore
       rebornix.Ruby
@@ -89,17 +88,12 @@
     userName = "Astro (Naruto Uzumaki)";
   };
 
-  ### LUA
-  lua = with pkgs; [
+  home.packages = with pkgs; [
     luajit
     stylua
     sumneko-lua-language-server
     luajitPackages.luacheck
     selene
-  ];
-
-  ### NODE JS
-  node = with pkgs; [
     nodejs
     nodePackages.pnpm
     jql
@@ -111,40 +105,18 @@
     nodePackages."@tailwindcss/language-server"
     nodePackages.vscode-langservers-extracted
     nodePackages.vls
-  ];
-
-  ### GOLANG
-  go = with pkgs; [ go go-langserver ];
-
-  ### RUST
-  rust = with pkgs; [ rustc cargo ];
-
-  ### PYTHON
-  python = with pkgs; [
+go go-langserver
+ rustc cargo
     python3
     python39Packages.pip
     pipenv
     python-language-server
-  ];
-
-  ### RUBY
-  ruby = with pkgs; [ ruby gem ];
-
-  ### GITHUB
-  gh = with pkgs; [ github-cli ];
-
-  ### OTHERS
-  others = with pkgs; [ gnumake android-tools gcc julia-stable-bin ];
-
-  ### OTHER LSPS
-  lsp = with pkgs; [
+  github-cli
+  gnumake android-tools gcc julia-stable-bin
     rnix-lsp
     nodePackages.vim-language-server
     nodePackages.yaml-language-server
     nodePackages.dockerfile-language-server-nodejs
-  ];
-
-  ### FMT
-  fmt = with pkgs; [ stylua nix-fmt nodePackages.prettier ];
-
+  stylua nixfmt nodePackages.prettier
+];
 }
