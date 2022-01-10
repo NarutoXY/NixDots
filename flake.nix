@@ -36,8 +36,7 @@
         nix-colors = inputs.nix-colors.colorSchemes.onedark;
         overlays = [ inputs.neovim-nightly-overlay.overlay ];
       };
-    in
-    {
+    in {
       # inherit self inputs;
       # System configurations
       # Accessible via 'nixos-rebuild --flake'
@@ -62,7 +61,7 @@
         };
       };
 
-			lib = import ./lib { inherit (nixpkgs) lib; };
+      lib = import ./lib { inherit (nixpkgs) lib; };
     };
 }
 

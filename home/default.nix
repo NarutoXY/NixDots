@@ -6,9 +6,8 @@
 let
   inherit (self.lib) mapAttrs x;
   colors = mapAttrs (n: v: x v) nix-colors.colors;
-in
 
-{
+in {
   # nixpkgs config
   nixpkgs = {
     config.allowUnfree = true;
@@ -30,16 +29,16 @@ in
       name = "Zafiro-icons";
       package = pkgs.zafiro-icons;
     };
-	
-	font = {
-		name = "Lato";
-		package = pkgs.lato;
-	};
+
+    font = {
+      name = "Lato";
+      package = pkgs.lato;
+    };
 
     gtk3.extraConfig = {
       gtk-theme-name = "catppuccin";
-	  gtk-font-name = "Sou";
-	};
+      gtk-font-name = "Sou";
+    };
   };
 
   programs = {

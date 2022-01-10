@@ -76,88 +76,75 @@
     };
   };
 
-### GIT
-programs.git = {
-  enable = true;
-  delta.enable = true;
-  ignores = [ "*~" "*.swp" "result" "dist" ];
-  signing = {
-    key = "BA2B56A17A1FC0FA";
-    signByDefault = true;
+  ### GIT
+  programs.git = {
+    enable = true;
+    delta.enable = true;
+    ignores = [ "*~" "*.swp" "result" "dist" ];
+    signing = {
+      key = "BA2B56A17A1FC0FA";
+      signByDefault = true;
+    };
+    userEmail = "github@sandy007.anonaddy.com";
+    userName = "Astro (Naruto Uzumaki)";
   };
-  userEmail = "github@sandy007.anonaddy.com";
-  userName = "Astro (Naruto Uzumaki)";
-};
 
-### LUA
-lua = with pkgs; [
-luajit
-stylua
-sumneko-lua-language-server
-luajitPackages.luacheck
-selene
-];
+  ### LUA
+  lua = with pkgs; [
+    luajit
+    stylua
+    sumneko-lua-language-server
+    luajitPackages.luacheck
+    selene
+  ];
 
-### NODE JS
-node = with pkgs; [
-nodejs
-nodePackages.pnpm
-nodePackages.prettier
-jql
-nodePackages.eslint
-nodePackages.svelte-language-server
-nodePackages.typescript
-nodePackages.typescript-language-server
-nodePackages.node2nix
-nodePackages."@tailwindcss/language-server"
-nodePackages.vscode-langservers-extracted
-nodePackages.vls
-];
+  ### NODE JS
+  node = with pkgs; [
+    nodejs
+    nodePackages.pnpm
+    jql
+    nodePackages.eslint
+    nodePackages.svelte-language-server
+    nodePackages.typescript
+    nodePackages.typescript-language-server
+    nodePackages.node2nix
+    nodePackages."@tailwindcss/language-server"
+    nodePackages.vscode-langservers-extracted
+    nodePackages.vls
+  ];
 
-### GOLANG
-go = with pkgs; [
-go
-go-langserver
-];
+  ### GOLANG
+  go = with pkgs; [ go go-langserver ];
 
-### RUST
-rust = with pkgs; [
-rustc
-cargo
-];
+  ### RUST
+  rust = with pkgs; [ rustc cargo ];
 
-### PYTHON
-python = with pkgs; [
+  ### PYTHON
+  python = with pkgs; [
     python3
     python39Packages.pip
     pipenv
     python-language-server
-];
+  ];
 
-### RUBY
-ruby = with pkgs; [
-    ruby
-    gem
-];
+  ### RUBY
+  ruby = with pkgs; [ ruby gem ];
 
-### GITHUB
-gh = with pkgs; [
-github-cli
-];
+  ### GITHUB
+  gh = with pkgs; [ github-cli ];
 
-### OTHERS
-others = with pkgs; [
-gnumake
-android-tools
-gcc
-julia-stable-bin
-];
+  ### OTHERS
+  others = with pkgs; [ gnumake android-tools gcc julia-stable-bin ];
 
-### OTHER LSPS
-lsp = with pkgs; [
+  ### OTHER LSPS
+  lsp = with pkgs; [
+    rnix-lsp
     nodePackages.vim-language-server
-	  nodePackages.yaml-language-server
+    nodePackages.yaml-language-server
     nodePackages.dockerfile-language-server-nodejs
-];
+  ];
+
+  ### FMT
+  fmt = with pkgs; [ stylua nix-fmt nodePackages.prettier ];
 
 }

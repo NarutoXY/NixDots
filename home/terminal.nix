@@ -7,14 +7,11 @@ let
   font = "JetBrainsMono Nerd Font";
   acolors = mapAttrs (n: v: x0 v) nix-colors.colors;
   colors = mapAttrs (n: v: x v) nix-colors.colors;
-in
-{
+in {
   programs.alacritty = {
     enable = true;
     settings = {
-      env = {
-        "TERM" = "xterm-256color";
-      };
+      env = { "TERM" = "xterm-256color"; };
       window = {
         decorations = "none";
         dynamic_padding = true;
@@ -53,7 +50,10 @@ in
           cyan = acolors.base0C;
           white = acolors.base05;
         };
-        bright = normal // { black = acolors.base03; white = acolors.base06; };
+        bright = normal // {
+          black = acolors.base03;
+          white = acolors.base06;
+        };
       };
       background_opacity = 0.9;
       shell.program = "zsh";
@@ -64,7 +64,7 @@ in
     enable = true;
     font.name = font;
     font.size = 12;
-	settings = {
+    settings = {
       scrollback_lines = 10000;
       window_padding_width = 4;
       shell = "zsh";
@@ -99,17 +99,16 @@ in
       # white
       color7 = colors.base05;
       color15 = colors.base06;
-			
-			# tabs
-			active_tab_foreground = colors.base0C;
-			active_tab_background = colors.base01;
-			active_tab_font_style = "normal";
-			inactive_tab_foreground = colors.base04;
-			inactive_tab_background = colors.base01;
-			inactive_tab_font_style = "normal";
-		};
+
+      # tabs
+      active_tab_foreground = colors.base0C;
+      active_tab_background = colors.base01;
+      active_tab_font_style = "normal";
+      inactive_tab_foreground = colors.base04;
+      inactive_tab_background = colors.base01;
+      inactive_tab_font_style = "normal";
+    };
   };
 }
-
 
 # vim:set expandtab ft=nix ts=2 sw=2 noet:
