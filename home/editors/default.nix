@@ -9,7 +9,6 @@
     vimdiffAlias = true;
     withRuby = false;
     withPython3 = true;
-    package = pkgs.neovim;
   };
 
   ### THE MOST FAMOUS KID
@@ -29,21 +28,21 @@
       pkief.material-icon-theme
       redhat.vscode-yaml
       github.vscode-pull-request-github
-      eg2.vscode-npm-script
-      editorConfig.EditorConfig
-      wayou.vscode-todo-highlight
-      hollowtree.vue-snippets
+      # eg2.vscode-npm-script
+      editorconfig.editorconfig
+      # wayou.vscode-todo-highlight
+      # hollowtree.vue-snippets
       # ritwickdey.live-sass
       bradlc.vscode-tailwindcss
       svelte.svelte-vscode
-      equinusocio.vsc-community-material-theme
-      rust-lang.rust
+      # equinusocio.vsc-community-material-theme
+      # rust-lang.rust
       codezombiech.gitignore
-      rebornix.Ruby
-      WallabyJs.quokka-vscode
-      ms-vscode.js-debug-nightly
+      # rebornix.ruby
+      # WallabyJs.quokka-vscode
+      # ms-vscode.js-debug-nightly
       julialang.language-julia
-      KevinRose.vsc-python-indent
+      kevinrose.vsc-python-indent
       mgmcdermott.vscode-language-babel
       christian-kohler.path-intellisense
     ];
@@ -94,6 +93,7 @@
     sumneko-lua-language-server
     luajitPackages.luacheck
     selene
+    
     nodejs
     nodePackages.pnpm
     jql
@@ -105,18 +105,34 @@
     nodePackages."@tailwindcss/language-server"
     nodePackages.vscode-langservers-extracted
     nodePackages.vls
-go go-langserver
- rustc cargo
+    
+    go
+    go-langserver
+    
+    rustc
+    cargo
+    
     python3
     python39Packages.pip
     pipenv
     python-language-server
-  github-cli
-  gnumake android-tools gcc julia-stable-bin
+    
+    github-cli
+    
+    gnumake
+    gcc
+
+    android-tools
+    
+    julia-stable-bin
+    
     rnix-lsp
     nodePackages.vim-language-server
     nodePackages.yaml-language-server
     nodePackages.dockerfile-language-server-nodejs
-  stylua nixfmt nodePackages.prettier
-];
+    
+    stylua
+    nixfmt
+    nodePackages.prettier
+  ];
 }
