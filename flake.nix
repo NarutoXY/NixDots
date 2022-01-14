@@ -33,7 +33,7 @@
     let
       extraSpecialArgs = {
         inherit inputs self;
-        nix-colors = inputs.nix-colors.colorSchemes.catppuccin;
+        nix-colors = inputs.nix-colors.colorSchemes.tokyo-night-terminal-dark;
         overlays = [ inputs.neovim-nightly-overlay.overlay ];
       };
     in {

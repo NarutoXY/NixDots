@@ -4,7 +4,7 @@
 
 let
   inherit (self.lib) mapAttrs x0 x;
-  font = "Victor Mono Medium";
+  font = "VictorMono Nerd Font";
   acolors = mapAttrs (n: v: x0 v) nix-colors.colors;
   colors = mapAttrs (n: v: x v) nix-colors.colors;
 in {

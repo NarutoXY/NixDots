@@ -131,7 +131,7 @@ in
 
     # ST
     "st.borderpx" = 15;
-    "st.font" = "Victor Mono:style:medium:pixelsize=15";
+    "st.font" = "VictorMono Nerd Font:style:medium:pixelsize=15";
     "st.alpha" = "0.8";
   };
 }
