@@ -17,12 +17,11 @@
 format = "[$all_status$ahead_behind]($style)";
 ahead = "⇡ $count ";
 behind = "⇣ $count ";
-deleted = "🗑 $count ";
 diverged = " $count ";
 stashed = "📦 $count ";
 staged = ''[ $count ](green)'';
-renamed = " $count ";
-untracked = "🤷 ‍$count ";
+renamed = "  $count ";
+untracked = "🤷 $count ";
 style = "bold red";
 			    };
 			    hg_branch.symbol = "";

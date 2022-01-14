@@ -16,7 +16,7 @@
       victor-mono
 
       # nerdfonts
-      (nerdfonts.override { fonts = [ "FiraCode" "JetBrainsMono" ]; })
+      (nerdfonts.override { fonts = [ "FiraCode" "JetBrainsMono" "VictorMono" ]; })
     ];
 
     # use fonts specified by user rather than default ones

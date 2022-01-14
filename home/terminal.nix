@@ -76,7 +76,7 @@ in {
       foreground = colors.base05;
       background = colors.base00;
       # selection
-      selection_background = acolors.base02;
+      selection_background = colors.base02;
       selection_foreground = colors.base06;
 			# cursor
 			cursor = colors.base05;
