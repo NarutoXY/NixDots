@@ -169,14 +169,13 @@ in {
 
         "format-volume" = "<ramp-volume> <label-volume>";
         "format-volume-foreground" = "${colors.base0D}";
-        "label-muted" = "󰸈 ";
-        "label-muted-foreground" = "${colors.base0D}";
+        "label-muted" = "󰸈";
+        "label-muted-foreground" = "${colors.base08}";
 
         "ramp-volume-0" = "󰕿";
         "ramp-volume-1" = "󰖀";
         "ramp-volume-2" = "󰕾";
         "label-background" = "${colors.base02}";
-        "label-muted-foreground" = "${colors.base05}";
       };
       "module/circleStart2" = {
         "type" = "custom/text";
