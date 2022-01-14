@@ -2,7 +2,6 @@
 let
   inherit (self.lib) mapAttrs x;
   colors = mapAttrs (n: v: x v) nix-colors.colors;
-
   mprisScript = pkgs.callPackage ./mpris.nix { };
 in {
   services.polybar = {
@@ -150,7 +149,7 @@ in {
       "module/polywins" = {
         "type" = "custom/script";
 
-        "exec" = "bash $HOME/.local/bin/polywins";
+        "exec" = "polywins";
 
         "tail" = true;
 
