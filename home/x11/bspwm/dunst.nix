@@ -16,7 +16,7 @@ in
       global = {
         alignment = "center";
         corner_radius = 0;
-        font = "Victor Mono 10";
+        font = "VictorMono Nerd Font:style=Italic 10";
         format = "<b>%s</b>\\n%b";
         geometry = "250x200-15+50";
         width = 300;

@@ -30,13 +30,14 @@ in {
         "wm-restack" = "bspwm";
 
         "modules-left" =
-          "circleStart dashboard separatorTriangle bspwm circleEnd";
+          "circleStart2 bspwm circleEnd";
         "modules-center" = "circleStart2 polywins circleEnd";
         "modules-right" =
-          "circleStart2 mpris circleEnd circleStart2 date_i date circleEnd separator circleStart2 audio circleEnd separator separatorText separator circleStart2 powermenu circleEnd";
+          "circleStart2 mpris circleEnd circleStart2 date_i date circleEnd separator circleStart2 pulseaudio circleEnd separator separatorText separator circleStart2 powermenu circleEnd";
         "font-0" = "Victor Mono:style=Bold:pixelsize=9;3";
         "font-1" = "JetBrainsMono Nerd Font:size=14;4";
-        "font-2" = "unifont:fontformat=truetype:size=9;3";
+        "font-2" = "Material Design Icons:size=18;4";
+        "font-3" = "unifont:fontformat=truetype:size=9;3";
       };
       "module/separator" = {
         "type" = "custom/text";
@@ -62,7 +63,7 @@ in {
         "ws-icon-3" = "IV";
         "ws-icon-4" = "V";
         "ws-icon-5" = "VI";
-        "ws-icon-default" = "";
+        # "ws-icon-default" = "";
 
         "format" = "<label-state>";
 
@@ -74,13 +75,13 @@ in {
         "label-focused-font" = 4;
 
         "label-occupied" = "◇";
-        "label-occupied-foreground" = "${colors.base03}";
+        "label-occupied-foreground" = "${colors.base05}";
         "label-occupied-background" = "${colors.base02}";
         "label-occupied-padding" = 1;
         "label-occupied-font" = 4;
 
         "label-empty" = "◇";
-        "label-empty-foreground" = "${colors.base03}";
+        "label-empty-foreground" = "${colors.base04}";
         "label-empty-background" = "${colors.base02}";
         "label-empty-padding" = 1;
         "label-empty-font" = 4;
@@ -104,6 +105,7 @@ in {
         "content" = "";
         "content-background" = "${colors.base02}";
         "content-foreground" = "${colors.base08}";
+        "content-font" = 1;
       };
 
       "module/date" = {
@@ -174,27 +176,28 @@ in {
         "ramp-volume-0" = "󰕿";
         "ramp-volume-1" = "󰖀";
         "ramp-volume-2" = "󰕾";
+        "background" = "${colors.base02}";
       };
       "module/circleStart2" = {
         "type" = "custom/text";
 
         "content" = "";
         "content-foreground" = "${colors.base02}";
-        "content-font" = 1;
+        "content-font" = 2;
       };
       "module/circleStart" = {
         "type" = "custom/text";
 
         "content" = "";
         "content-foreground" = "${colors.base01}";
-        "content-font" = 1;
+        "content-font" = 2;
       };
       "module/circleEnd" = {
         "type" = "custom/text";
 
         "content" = "";
         "content-foreground" = "${colors.base02}";
-        "content-font" = 1;
+        "content-font" = 2;
       };
       "module/separatorTriangle" = {
         "type" = "custom/text";
@@ -202,7 +205,7 @@ in {
         "content" = "";
         "content-foreground" = "${colors.base01}";
         "content-background" = "${colors.base02}";
-        "content-font" = 1;
+        "content-font" = 2;
       };
       "module/mpris" = {
         "type" = "custom/script";
@@ -222,7 +225,7 @@ in {
         "content" = "•";
         "content-foreground" = "${colors.base03}";
         "content-padding" = 0;
-        "content-font" = 1;
+        "content-font" = 2;
       };
       "module/separatorText2" = {
         "type" = "custom/text";

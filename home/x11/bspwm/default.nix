@@ -21,6 +21,7 @@ in
     dunst # for dunstctl
     playerctl
     xclip
+    xorg.xprop
     xdotool
     xorg.xkill
   	feh
@@ -66,7 +67,6 @@ in
       };
       startupPrograms = [
         "sh ~/.fehbg"
-        "eww daemon"
 			];
       monitors = {
         "VGA1" = [ "1" "2" "3" "4" "5" ];
@@ -93,7 +93,7 @@ in
 
   xresources.properties = {
     #! special
-    "*.foreground" = colors.base06;
+    "*.foreground" = colors.base05;
     "*.background" = colors.base00;
 
     # black
@@ -118,8 +118,8 @@ in
     "*.color6" = colors.base0C;
     "*.color14" = colors.base0C;
     # white
-    "*.color7" = colors.base06;
-    "*.color15" = colors.base07;
+    "*.color7" = colors.base05;
+    "*.color15" = colors.base05;
     
     # Xft
     "Xft.antialias" =  1;

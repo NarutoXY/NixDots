@@ -29,7 +29,6 @@ style = "bold red";
 			    julia.symbol = " ";
 			    nix_shell.symbol = " ";
 			    python.symbol = " ";
-			    git_branch.symbol = " ";
 			    directory.read_only = "  ";
 			scan_timeout = 100;
 		};

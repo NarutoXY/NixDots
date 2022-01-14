@@ -13,8 +13,8 @@ in
       # start terminal
       "super + {_, shift} + Return" = "{kitty, alacritty}";
       # application launcher
-      "super + @space" = "${s}/appmnu";
-      "Menu" = "${s}/appmnu";
+      "super + @space" = "rofi -show drun";
+      "Menu" = "rofi -show drun";
       # reload sxhkd
       "super + Escape" = "pkill -USR1 -x sxhkd";
       # pause/resume notifications
@@ -81,9 +81,8 @@ in
       # screencast region
       # "alt + Print" = "${s}/scrrec -s ~/vids/scrrec/$(date +%F-%T).mp4";
       # powermenu
-      "super + p" = "${s}/powermenu";
       # window switcher
-      "alt + Tab" = "${s}/winmnu";
+      "alt + Tab" = "rofi -show window";
       # emoji launcher
       "super + e" = "rofi -show emoji";
 
