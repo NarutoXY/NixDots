@@ -150,7 +150,7 @@ in {
       "module/polywins" = {
         "type" = "custom/script";
 
-        "exec" = "$HOME/.local/bin/polywins";
+        "exec" = "bash $HOME/.local/bin/polywins";
 
         "tail" = true;
 

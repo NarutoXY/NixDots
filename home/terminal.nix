@@ -80,7 +80,7 @@ in {
       selection_foreground = colors.base06;
 			# cursor
 			cursor = colors.base05;
-			cursor_text_color = colors.base01;
+			cursor_text_color = colors.base03;
       # black
       color0 = colors.base00;
       color8 = colors.base01;
