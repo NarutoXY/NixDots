@@ -33,10 +33,10 @@ in {
           "circleStart2 bspwm circleEnd";
         "modules-center" = "circleStart2 polywins circleEnd";
         "modules-right" =
-          "circleStart2 mpris circleEnd circleStart2 date_i date circleEnd separator circleStart2 pulseaudio circleEnd separator separatorText separator circleStart2 powermenu circleEnd";
+          "circleStart2 date_i date circleEnd separator circleStart2 pulseaudio circleEnd separator separatorText separator circleStart2 powermenu circleEnd";
         "font-0" = "Victor Mono:style=Bold:pixelsize=9;3";
         "font-1" = "JetBrainsMono Nerd Font:size=14;4";
-        "font-2" = "Material Design Icons:size=18;4";
+        "font-2" = "Material Design Icons:size=9;3";
         "font-3" = "unifont:fontformat=truetype:size=9;3";
       };
       "module/separator" = {
@@ -115,7 +115,7 @@ in {
 
         "format" = "<label>";
         "format-background" = "${colors.base02}";
-        "format-foreground" = "${colors.base0C}";
+        "format-foreground" = "${colors.base0B}";
         "format-padding" = 1;
 
         # time = %H:%M // %a %d/%m
@@ -134,9 +134,9 @@ in {
         "format-padding" = 1;
 
         # time = %H:%M // %a %d/%m
-        "time" = " ";
+        "time" = "";
         "time-alt" = "%b %d, %Y ~ %A";
-        "label" = "%time% ";
+        "label" = "%time%";
       };
       "module/dashboard" = {
         "type" = "custom/text";
@@ -159,7 +159,6 @@ in {
         "label" = "%output%";
         "label-background" = "${colors.base02}";
         "label-padding" = 1;
-        "label-font" = 1;
       };
       "module/pulseaudio" = {
         "type" = "internal/pulseaudio";
@@ -176,7 +175,8 @@ in {
         "ramp-volume-0" = "󰕿";
         "ramp-volume-1" = "󰖀";
         "ramp-volume-2" = "󰕾";
-        "background" = "${colors.base02}";
+        "label-background" = "${colors.base02}";
+        "label-muted-foreground" = "${colors.base05}";
       };
       "module/circleStart2" = {
         "type" = "custom/text";
