@@ -4,7 +4,7 @@
 
 let
   inherit (self.lib) mapAttrs x0 x;
-  font = "JetBrainsMono Nerd Font";
+  font = "Victor Mono Medium";
   acolors = mapAttrs (n: v: x0 v) nix-colors.colors;
   colors = mapAttrs (n: v: x v) nix-colors.colors;
 in {
@@ -75,9 +75,15 @@ in {
       background_opacity = "0.7";
       foreground = colors.base05;
       background = colors.base00;
+      # selection
+      selection_background = acolors.base02;
+      selection_foreground = colors.base06;
+			# cursor
+			cursor = colors.base05;
+			cursor_text_color = colors.base01;
       # black
-      color0 = colors.base02;
-      color8 = colors.base03;
+      color0 = colors.base00;
+      color8 = colors.base01;
       # red
       color1 = colors.base08;
       color9 = colors.base08;
@@ -98,11 +104,12 @@ in {
       color14 = colors.base0C;
       # white
       color7 = colors.base05;
-      color15 = colors.base06;
-
+      color15 = colors.base05;
+			# url
+			url_color = colors.base0C;
       # tabs
-      active_tab_foreground = colors.base0C;
-      active_tab_background = colors.base01;
+      active_tab_foreground = colors.base05;
+      active_tab_background = colors.base02;
       active_tab_font_style = "normal";
       inactive_tab_foreground = colors.base04;
       inactive_tab_background = colors.base01;

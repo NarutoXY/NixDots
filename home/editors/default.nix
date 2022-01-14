@@ -1,16 +1,6 @@
 { config, pkgs, lib, ... }:
 
 {
-  ### WELCOME THE COOLEST KID IN THE TOWN
-  programs.neovim = {
-    enable = true;
-    viAlias = true;
-    vimAlias = true;
-    vimdiffAlias = true;
-    withRuby = false;
-    withPython3 = true;
-  };
-
   ### THE MOST FAMOUS KID
   programs.vscode = {
     enable = true;
@@ -41,10 +31,10 @@
       # rebornix.ruby
       # WallabyJs.quokka-vscode
       # ms-vscode.js-debug-nightly
-      julialang.language-julia
-      kevinrose.vsc-python-indent
-      mgmcdermott.vscode-language-babel
-      christian-kohler.path-intellisense
+      # julialang.language-julia
+      # kevinrose.vsc-python-indent
+      # mgmcdermott.vscode-language-babel
+      # christian-kohler.path-intellisense
     ];
     userSettings = {
       "update.channel" = "none";
@@ -134,5 +124,8 @@
     stylua
     nixfmt
     nodePackages.prettier
+  
+    # I LIKE MY IMPERATIVE CONFIG OF NEOVIM
+    neovim
   ];
 }

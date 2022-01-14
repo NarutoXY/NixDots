@@ -13,19 +13,29 @@
 		enableZshIntegration = true;
 		settings = {
 			add_newline = true;
-			character = {
-				success_symbol = "[](bold green)";
-				error_symbol = "[](bold red)";
-			};
+			git_status = {
+format = "[$all_status$ahead_behind]($style)";
+ahead = "⇡ $count ";
+behind = "⇣ $count ";
+deleted = "🗑 $count ";
+diverged = " $count ";
+stashed = "📦 $count ";
+staged = ''[ $count ](green)'';
+renamed = " $count ";
+untracked = "🤷 ‍$count ";
+style = "bold red";
+			    };
+			    hg_branch.symbol = "";
+			    java.symbol = " ";
+			    julia.symbol = " ";
+			    nix_shell.symbol = " ";
+			    python.symbol = " ";
+			    git_branch.symbol = " ";
+			    directory.read_only = "  ";
 			scan_timeout = 100;
 		};
 	};
 	
-	programs.fzf = {
-		enable = true;
-		enableZshIntegration = true;
-		};
-
   programs.zsh = {
     enable = true;
 		enableCompletion = true;
@@ -69,7 +79,10 @@
 			${builtins.readFile ./mappings.zsh}
 			${builtins.readFile ./options.zsh}
 			${builtins.readFile ./compe-tweaks.zsh}
-      ${builtins.readFile ./nix-completions.sh}
+            ${builtins.readFile ./nix-completions.sh}
+            ${builtins.readFile ./per-directory-history.zsh}
+            ${builtins.readFile ./per-directory-history.zsh}
+            source ${pkgs.zsh-fzf-tab}/share/fzf-tab/fzf-tab.zsh
     '';
     shellAliases = {
       switch = "sudo nixos-rebuild switch --flake ~/.config/nixpkgs/";
@@ -77,6 +90,7 @@
       top = "gotop";
       v = "nvim";
       nv = "nvim";
+      tmp = " cd $(mktemp -d)";
     };
 
     shellGlobalAliases = { exa = "exa --icons --git"; };

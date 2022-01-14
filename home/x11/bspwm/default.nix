@@ -10,8 +10,8 @@ in
   imports = [
     #./autorandr.nix
     ./dunst.nix
-    #./picom.nix
-    ./polybar.nix
+    ./picom.nix
+    ./polybar
     ./rofi.nix
     ./sxhkd.nix
   ];
@@ -24,8 +24,9 @@ in
     xdotool
     xorg.xkill
   	feh
-	  siduck76-st # hmm because it works on xorg
+	siduck76-st # hmm because it works on xorg
     libnotify
+    wmctrl
   ];
 
   services = {
@@ -34,7 +35,7 @@ in
       settings = {
         General = {
           # userColors = [ colors.base01 colors.base05 colors.base09 colors.base08 colors.base0A colors.base0B colors.base0C "picker" ];
-          uiColor = colors.base0C;
+          uiColor = colors.base0B;
           contrastUiColor = colors.base0B;
           drawColor = colors.base0B;
         };
@@ -61,6 +62,7 @@ in
         "Firefox" = { desktop = "^2"; };
         "Vivaldi-stable" = { desktop = "^2"; };
         "Code" = { desktop = "^3"; };
+        "mpv" = { desktop = "^4"; };
       };
       startupPrograms = [
         "sh ~/.fehbg"
@@ -70,12 +72,12 @@ in
         "VGA1" = [ "1" "2" "3" "4" "5" ];
       };
       settings = {
-        border_width = 2;
+        border_width = 5;
         window_gap = 5;
 
-        active_border_color = colors.base02;
-        focused_border_color = colors.base08;
-        normal_border_color = colors.base0A;
+        active_border_color = colors.base0C;
+        focused_border_color = colors.base0D;
+        normal_border_color = colors.base02;
         presel_feedback_color = colors.base0B;
 
         split_ratio = 0.5;
@@ -95,8 +97,8 @@ in
     "*.background" = colors.base00;
 
     # black
-    "*.color0" = colors.base02;
-    "*.color8" = colors.base03;
+    "*.color0" = colors.base00;
+    "*.color8" = colors.base01;
     # red
     "*.color1" = colors.base08;
     "*.color9" = colors.base08;
@@ -129,7 +131,7 @@ in
 
     # ST
     "st.borderpx" = 15;
-    "st.font" = "JetBrainsMono Nerd Font:style:medium:pixelsize=15";
-    # "st.alpha" = 0.8;
+    "st.font" = "Victor Mono:style:medium:pixelsize=15";
+    "st.alpha" = "0.8";
   };
 }
