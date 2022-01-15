@@ -55,9 +55,10 @@
       "editor.guides.highlightActiveBracketPair" = true;
       "[svelte]"."editor.defaultFormatter" = "svelte.svelte-vscode";
       "editor.defaultFormatter" = "esbenp.prettier-vscode";
-      "editor.fontFamily" = "JetBrainsMono Nerd Font";
+      "editor.fontFamily" = "Victor Mono SemiBold";
       "editor.fontLigatures" = true;
       "explorer.decorations.badges" = false;
+      "workbench.colorTheme" = "Ayu Mirage";
       "editor.fontSize" = 16;
       "typescript.suggest.paths" = false;
       "javascript.suggest.paths" = false;

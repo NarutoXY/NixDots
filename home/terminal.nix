@@ -4,7 +4,8 @@
 
 let
   inherit (self.lib) mapAttrs x0 x;
-  font = "VictorMono Nerd Font";
+  font = "Victor Mono SemiBold";
+  ifont = "Victor Mono";
   acolors = mapAttrs (n: v: x0 v) nix-colors.colors;
   colors = mapAttrs (n: v: x v) nix-colors.colors;
 in {
@@ -26,8 +27,8 @@ in {
 
       font = {
         normal.family = font;
-        bold.family = font;
-        italic.family = font;
+        bold.family = ifont;
+        italic.family = ifont;
         size = 13;
         use_thin_strokes = true;
         offset.y = -1;
@@ -65,6 +66,8 @@ in {
     font.name = font;
     font.size = 12;
     settings = {
+    	italic_font = ifont;
+    	bold_font = ifont;
       scrollback_lines = 10000;
       window_padding_width = 4;
       shell = "zsh";

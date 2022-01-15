@@ -29,7 +29,7 @@
     let
       extraSpecialArgs = {
         inherit inputs self;
-        nix-colors = inputs.nix-colors.colorSchemes.catppuccin;
+        nix-colors = inputs.nix-colors.colorSchemes.ayu-mirage;
       };
     in {
       # inherit self inputs;
