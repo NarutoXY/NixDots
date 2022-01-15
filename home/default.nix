@@ -1,4 +1,4 @@
-{ pkgs, inputs, overlays, nix-colors, self, ... }:
+{ pkgs, inputs, nix-colors, self, ... }:
 
 # graphical session configuration
 # includes programs and services that work on both Wayland and X
@@ -9,10 +9,7 @@ let
 
 in {
   # nixpkgs config
-  nixpkgs = {
-    config.allowUnfree = true;
-    inherit overlays;
-  };
+  nixpkgs.config.allowUnfree = true;
 
   imports = [
     ./editors

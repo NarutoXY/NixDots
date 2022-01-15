@@ -23,10 +23,6 @@
       url = "github:nix-community/rnix-lsp";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    # OVERLAY 
-    neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
-
   };
 
   outputs = { self, nixpkgs, home-manager, utils, ... }@inputs:
@@ -34,7 +30,6 @@
       extraSpecialArgs = {
         inherit inputs self;
         nix-colors = inputs.nix-colors.colorSchemes.catppuccin;
-        overlays = [ inputs.neovim-nightly-overlay.overlay ];
       };
     in {
       # inherit self inputs;
@@ -50,7 +45,7 @@
             {
               home-manager = {
                 inherit extraSpecialArgs;
-                useGlobalPkgs = false;
+                useGlobalPkgs = true;
                 useUserPackages = true;
                 users.naruto = import ./home;
               };

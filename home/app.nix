@@ -52,5 +52,7 @@
 
     ##### MISC UTILS ##### --------------
     glow
+  
+    ytmdesktop
   ];
 }
