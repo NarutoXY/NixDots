@@ -60,6 +60,7 @@
       "explorer.decorations.badges" = false;
       "workbench.colorTheme" = "Ayu Mirage";
       "editor.fontSize" = 16;
+      "workbench.preferredDarkColorTheme" = "Ayu Mirage";
       "typescript.suggest.paths" = false;
       "javascript.suggest.paths" = false;
     };

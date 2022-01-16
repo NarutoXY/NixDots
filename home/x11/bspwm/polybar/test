@@ -1,0 +1,204 @@
+
+[colors]
+background = ${xrdb:color0}
+foreground = ${xrdb:color5}
+
+color0 = ${xrdb:color0}
+color1 = ${xrdb:color1}
+color2 = ${xrdb:color2}
+color3 = ${xrdb:color3}
+color4 = ${xrdb:color4}
+color5 = ${xrdb:color5}
+color6 = ${xrdb:color6}
+color7 = ${xrdb:color7}
+color8 = ${xrdb:color8}
+color9 = ${xrdb:color9}
+color10 = ${xrdb:color10}
+color11 = ${xrdb:color11}
+color12 = ${xrdb:color12}
+color13 = ${xrdb:color13}
+color14 = ${xrdb:color14}
+color15 = ${xrdb:color15}
+dark-light = #272A2B 
+active-light = #313435
+
+[bar/main]
+tray-position = right
+monitor = VGA1
+width =  100%
+height = 18
+padding-left =1
+padding-right =0
+
+background = #ff0000
+foreground = #ffffff
+bottom = false
+border-top-size = 5
+border-bottom-size = 5
+border-top-color = ${colors.background}
+border-bottom-color = ${colors.background}
+
+line-size = 1
+wm-restack = bspwm
+
+modules-left = round-left bspwm round-right
+modules-center = round-left polywins round-right
+modules-right = round-left mpris alsa round-right empty-space round-left wlan round-right empty-space round-left time  round-right  empty-space round-left powermenu round-right empty-space
+font-0 = VictorMono Nerd Font:style=Bold:pixelsize=9;3
+font-1 = VictorMono Nerd Font:size=14;4
+font-2 = Material Design Icons:style=Bold:size=9;3
+font-3 = unifont:fontformat=truetype:size=9;3
+
+
+[module/polywins]
+type = custom/script
+exec = $HOME/.local/bin/polywins 2>/dev/null
+format = <label>
+format-background = #2a2e36
+label = %output%
+label-padding = 0
+tail = true
+
+[module/empty-space]
+type = custom/text
+content = "  "
+
+[module/round-left]
+type = custom/text
+content = %{T3}%{T-}
+content-foreground = #2a2e36
+
+[module/round-right]
+type = custom/text
+content = %{T3}%{T-}
+content-foreground = #2a2e36
+
+[module/roundd-left]
+type = custom/text
+content = %{T3}%{T-}
+content-foreground = #a3be8c 
+
+[module/roundd-right]
+type = custom/text
+content = %{T3}%{T-}
+content-foreground = #a3be8c
+
+[module/temperature]
+type = internal/temperature
+thermal-zone = 0
+warn-temperature = 70
+
+format = <ramp> <label>
+format-warn = <ramp> <label-warn>
+format-padding = 1
+label = %temperature%
+label-warn = %temperature%
+ramp-0 =  "󰜗" 
+ramp-font = 3
+ramp-foreground = #a4ebf3
+
+
+[module/mpris]
+exec=/nix/store/6vld6l38h9ba9q9ramyp8nahkhgwmpj8-mpris/bin/mpris
+format=󰎆 <label>
+interval=1
+label-maxlen=50
+tail=true
+type=custom/script
+format-padding = 1
+format-background = #2a2e36
+
+[module/bspwm]
+type = internal/bspwm
+
+strip-wsnumbers = true
+pin-workspaces = true
+;inline-mode = true
+enable-click = true
+enable-scroll = true
+reverse-scroll = false
+
+format = <label-state>
+label-separator = " "
+label-separator-background = #2a2e36
+
+label-focused =  %icon%  
+label-focused-foreground = #646870
+label-focused-padding = 1
+label-focused-background = #464a52
+label-focused-margin = 0 
+
+label-occupied =  %icon%  
+label-occupied-foreground = #646870  
+label-occupied-background = #2a2e36
+label-occupied-padding = 1
+label-occupied-margin = 0 
+
+label-empty = %icon%
+label-empty-foreground =  #646870
+label-empty-padding = 1
+label-empty-background = #2a2e36
+label-empty-margin = 0 
+
+
+label-urgent = %icon%
+label-urgent-foreground = #88C0D0
+label-urgent-background = #2a2e36
+label-urgent-padding = 1
+
+[module/alsa]
+click-right=/nix/store/4rlcq9x9qafbffgs9zycxs6gz3f21f55-pavucontrol-5.0/bin/pavucontrol
+format-volume=<ramp-volume> <label-volume>
+format-volume-foreground=#A4B9EF
+interval=5
+label-background=#2a2e36
+label-muted=󰸈
+label-muted-foreground=#E28C8C
+label-muted-background=#ffffff
+ramp-volume-0=󰕿
+ramp-volume-1=󰖀
+ramp-volume-2=󰕾
+sink=
+type=internal/pulseaudio
+use-ui-max=false
+format-volume-background = #2a2e36
+content-background = #2a2e36
+
+[module/time]
+type = internal/date
+interval = 60
+
+format = <label>
+format-background = #2a2e36
+format-foreground = #82868e
+
+date = 󰥔 %H:%M%{F-}
+time-alt = 󰃭 %a, %b %d%{F-}
+
+label = %date%%time%
+
+[module/powermenu]
+type = custom/text 
+content ="%{B#2a2e36} %{B-}" 
+content-padding = 0
+click-left = doas zzz &
+format-background = #2a2e36
+content-foreground = #ff0000
+
+[module/wlan]
+type = internal/network
+interface = enp2s0
+interval = 3.0
+format-connected =  <label-connected>
+label-connected = "󰤪 " 
+label-connected-foreground = #A3BE8C 
+format-connected-background = #2a2e36
+
+[module/volume]
+type = custom/script
+exec = amixer get Master | awk '$0~/%/{print $4}' | tr -d '[]'
+format = <label>
+internal = 5.0
+label = %output% 
+label-foreground = #BF616A
+label-padding = 1

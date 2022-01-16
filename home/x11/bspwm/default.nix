@@ -10,7 +10,8 @@ in
   imports = [
     #./autorandr.nix
     ./dunst.nix
-    ./picom.nix
+    # blur sucks and sucks a lot
+    # ./picom.nix
     ./polybar
     ./rofi.nix
     ./sxhkd.nix
@@ -69,7 +70,7 @@ in
         "sh ~/.fehbg"
 			];
       monitors = {
-        VGA1 = [ 1 2 3 4 5 ];
+        VGA1 = [ "1" "2" "3" "4" "5" ];
       };
       settings = {
         border_width = 5;
@@ -85,7 +86,7 @@ in
         gapless_monocle = true;
         single_monocle = true;
 
-        top_padding = 35;
+        top_padding =18;
         bottom_padding = 0;
       };
     };

@@ -24,13 +24,21 @@ renamed = "  $count ";
 untracked = "🤷 $count ";
 style = "bold red";
 			    };
-			    hg_branch.symbol = "";
+			    hg_branch.symbol = " ";
+			    git_branch.symbol = " ";
 			    java.symbol = " ";
 			    julia.symbol = " ";
 			    nix_shell.symbol = " ";
 			    python.symbol = " ";
 			    directory.read_only = "  ";
 			scan_timeout = 100;
+			sudo.disabled = false;
+			status.disabled = false;
+						character = {
+				success_symbol = "[](bold green)";
+				error_symbol = "[](bold red)";
+			    vicmd_symbol = "[](bold green)";
+			};
 		};
 	};
 	

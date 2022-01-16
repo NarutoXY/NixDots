@@ -26,7 +26,9 @@
       options = "--delete-older-than 1d";
     };
   };
-    nixpkgs.config.allowUnfree = true;
+    nixpkgs.config = {
+        allowUnfree = true;
+    };
   networking = {
     hostName = "lambda"; # Define your hostname.
     wireless.enable = false; # Enables wireless support via wpa_supplicant.
@@ -109,6 +111,8 @@
     killall
     coreutils
     vim
+    xorg.xprop
+    wmctrl
   ];
 
   programs.bash.enableCompletion = true;

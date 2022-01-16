@@ -4,7 +4,7 @@
   home.packages = with pkgs; [
     ##### SYSTEM ADMIN TOOLS ##### -----
     killall
-    gotop
+    btop
     xdg-user-dirs
 
     ###########################################
@@ -18,13 +18,9 @@
     curl
     axel
     qutebrowser
-    vivaldi
-    vivaldi-widevine
-    vivaldi-ffmpeg-codecs
 
     ##### FILE MANIPULATION TOOLS ##### -
     trash-cli
-    pcmanfm
     unzip
 
     ##### SHELLS ##### ------------------

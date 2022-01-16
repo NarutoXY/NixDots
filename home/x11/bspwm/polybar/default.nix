@@ -13,41 +13,52 @@ in {
         "tray-position" = "right";
         "monitor" = "VGA1";
         "width" = "100%";
-        "height" = "28";
+        "height" = "18";
         "padding-left" = "1";
-        "padding-right" = "0";
+        "padding-right" = "1";
 
-        "background" = "${colors.base01}";
+        "background" = "${colors.base00}";
         "foreground" = "${colors.base05}";
         "bottom" = false;
         "border-top-size" = 5;
         "border-bottom-size" = 5;
-        "border-top-color" = "${colors.base01}";
-        "border-bottom-color" = "${colors.base01}";
+        "border-top-color" = "${colors.base00}";
+        "border-bottom-color" = "${colors.base00}";
         "fixed-center" = true;
         "line-size" = 1;
         "wm-restack" = "bspwm";
 
         "modules-left" =
-          "circleStart2 bspwm circleEnd";
-        "modules-center" = "circleStart2 polywins circleEnd";
+          "round-left bspwm round-right";
+        "modules-center" = "round-left polywins round-right";
         "modules-right" =
-          "circleStart2 date_i date circleEnd separator circleStart2 pulseaudio circleEnd separator separatorText separator circleStart2 powermenu circleEnd";
-        "font-0" = "Victor Mono:style=Bold:pixelsize=9;3";
-        "font-1" = "JetBrainsMono Nerd Font:size=14;4";
-        "font-2" = "Material Design Icons:size=9;3";
+          "round-left mpris pulseaudio round-right empty-space empty-space round-left wlan round-right empty-space empty-space round-left date round-right empty-space round-left powermenu round-right";
+        "font-0" = "VictorMono Nerd Font:style=SemiBold:pixelsize=9;3";
+        "font-1" = "VictorMono Nerd Font:size=14;4";
+        "font-2" = "Material Design Icons:style=Bold:size=9;3";
         "font-3" = "unifont:fontformat=truetype:size=9;3";
       };
-      "module/separator" = {
+      "module/round-left" = {
+        "type" = "custom/text";
+        "content" = "%{T3}%{T-}";
+        "content-foreground" = "${colors.base02}";
+      };
+      "module/round-right" = {
+        "type" = "custom/text";
+        "content" = "%{T3}%{T-}";
+        "content-foreground" = "${colors.base02}";
+      };
+      "module/empty-space" = {
         "type" = "custom/text";
         "content" = " ";
       };
-      "module/bspwm" = {
+        "module/bspwm" = {
 
         "type" = "internal/bspwm";
 
         "pin-workspaces" = true;
         "strip-wsnumbers" = true;
+        "inline-mode" = true;
         "index-sort" = true;
 
         "enable-click" = true;
@@ -56,108 +67,84 @@ in {
         "wrapping-scroll" = false;
         "reverse-scroll" = false;
 
-        "ws-icon-0" = "I";
-        "ws-icon-1" = "II";
-        "ws-icon-2" = "III";
-        "ws-icon-3" = "IV";
-        "ws-icon-4" = "V";
-        "ws-icon-5" = "VI";
-        # "ws-icon-default" = "";
+        "ws-icon-0" = "1;I";
+        "ws-icon-1" = "2;II";
+        "ws-icon-2" = "3;III";
+        "ws-icon-3" = "4;IV";
+        "ws-icon-4" = "5;V";
 
         "format" = "<label-state>";
 
-        "label-focused" = "◆";
+        "label-focused" = "%icon%";
         # label-focused = %index%
-        "label-focused-foreground" = "${colors.base0B}";
+        "label-focused-foreground" = "${colors.base05}";
         "label-focused-background" = "${colors.base02}";
         "label-focused-padding" = 1;
-        "label-focused-font" = 4;
+        "label-focused-margin" = 0;
 
-        "label-occupied" = "◇";
-        "label-occupied-foreground" = "${colors.base05}";
+        "label-separator" = " ";
+        "label-separator-background" = "${colors.base02}";
+
+        "label-occupied" = " %icon%";
+        "label-occupied-foreground" = "${colors.base04}";
         "label-occupied-background" = "${colors.base02}";
         "label-occupied-padding" = 1;
-        "label-occupied-font" = 4;
 
-        "label-empty" = "◇";
-        "label-empty-foreground" = "${colors.base04}";
+        "label-empty" = "%icon%";
+        "label-empty-foreground" = "${colors.base03}";
         "label-empty-background" = "${colors.base02}";
         "label-empty-padding" = 1;
-        "label-empty-font" = 4;
+        "label-empty-margin" = 0;
 
-        "label-urgent" = "◇";
+        "label-urgent" = "%icon%";
         "label-urgent-foreground" = "${colors.base08}";
         "label-urgent-background" = "${colors.base02}";
         "label-urgent-padding" = 1;
-        "label-urgent-font" = 4;
-
-        "label-mode" = "%mode%";
-        "label-mode-padding" = 1;
-        "label-mode-foreground" = "${colors.base05}";
-        "label-mode-background" = "${colors.base02}";
       };
       "module/powermenu" = {
         "type" = "custom/text";
 
         "click-left" = "rofi -show power-menu -modi power-menu:~/.local/bin/rofi-power-menu";
 
-        "content" = "";
+        "content" = " ";
+        "content-padding" = 1;
         "content-background" = "${colors.base02}";
         "content-foreground" = "${colors.base08}";
-        "content-font" = 1;
       };
-
       "module/date" = {
-        "type" = "internal/date";
+"type" = "internal/date";
+"interval" = 60;
 
-        "interval" = "1.0";
+"format" = "<label>";
+"format-background" = "${colors.base02}";
+"format-foreground" = "${colors.base04}";
 
-        "format" = "<label>";
-        "format-background" = "${colors.base02}";
-        "format-foreground" = "${colors.base0B}";
-        "format-padding" = 1;
+"date" = "󰥔 %H:%M%{F-}";
+"time-alt" = "󰃭 %a, %b %d%{F-}";
 
-        # time = %H:%M // %a %d/%m
-        "time" = "%H:%M";
-        "time-alt" = "%b %d, %Y ~ %A";
-        "label" = "%time% ";
-      };
-      "module/date_i" = {
-        "type" = "internal/date";
-
-        "interval" = "1.0";
-
-        "format" = "<label>";
-        "format-background" = "${colors.base02}";
-        "format-foreground" = "${colors.base0C}";
-        "format-padding" = 1;
-
-        # time = %H:%M // %a %d/%m
-        "time" = "";
-        "time-alt" = "%b %d, %Y ~ %A";
-        "label" = "%time%";
-      };
-      "module/dashboard" = {
-        "type" = "custom/text";
-
-        "click-right" = "rofi -show dmenu";
-
-        "content" = " ";
-        "content-background" = "${colors.base01}";
-        "content-foreground" = "${colors.base05}";
-      };
+"label" = "%date%%time%";
+    };
+    "module/wlan" = {
+"type" = "internal/network";
+"interface" = "enp2s0";
+"interval" = "3.0";
+"format-connected" =  "<label-connected>";
+"label-connected" = "󰤪 " ;
+"label-connected-foreground" = "${colors.base0B}";
+"format-connected-background" = "${colors.base02}";
+        };
       "module/polywins" = {
         "type" = "custom/script";
 
-        "exec" = "polywins";
+        "exec" = "$HOME/.local/bin/polywins";
 
         "tail" = true;
 
         "format" = "<label>";
 
         "label" = "%output%";
-        "label-background" = "${colors.base02}";
-        "label-padding" = 1;
+        "format-background" = "${colors.base02}";
+        "label-padding" = 0;
       };
       "module/pulseaudio" = {
         "type" = "internal/pulseaudio";
@@ -168,44 +155,18 @@ in {
 
         "format-volume" = "<ramp-volume> <label-volume>";
         "format-volume-foreground" = "${colors.base0D}";
-        "label-muted" = "󰸈";
+        "format-volume-background" = "${colors.base02}";
+        "label-muted" = "󰸈 ";
         "label-muted-foreground" = "${colors.base08}";
+        "label-muted-background" = "${colors.base02}";
 
         "ramp-volume-0" = "󰕿";
-        "ramp-volume-1" = "󰖀";
-        "ramp-volume-2" = "󰕾";
+        "ramp-volume-1" = "󰖀 ";
+        "ramp-volume-2" = "󰕾 ";
         "label-background" = "${colors.base02}";
       };
-      "module/circleStart2" = {
-        "type" = "custom/text";
-
-        "content" = "";
-        "content-foreground" = "${colors.base02}";
-        "content-font" = 2;
-      };
-      "module/circleStart" = {
-        "type" = "custom/text";
-
-        "content" = "";
-        "content-foreground" = "${colors.base01}";
-        "content-font" = 2;
-      };
-      "module/circleEnd" = {
-        "type" = "custom/text";
-
-        "content" = "";
-        "content-foreground" = "${colors.base02}";
-        "content-font" = 2;
-      };
-      "module/separatorTriangle" = {
-        "type" = "custom/text";
-
-        "content" = "";
-        "content-foreground" = "${colors.base01}";
-        "content-background" = "${colors.base02}";
-        "content-font" = 2;
-      };
-      "module/mpris" = {
+          
+    "module/mpris" = {
         "type" = "custom/script";
 
         "exec" = "${mprisScript}/bin/mpris";
@@ -216,26 +177,13 @@ in {
         "interval" = 1;
         "format" = "󰎆 <label>";
         "format-padding" = 2;
+        "format-foreground" = "${colors.base0C}";
+        "format-background" = "${colors.base02}";
       };
       "module/separatorText" = {
         "type" = "custom/text";
 
         "content" = "•";
-        "content-foreground" = "${colors.base03}";
-        "content-padding" = 0;
-        "content-font" = 2;
-      };
-      "module/separatorText2" = {
-        "type" = "custom/text";
-
-        "content" = "• ";
-        "content-foreground" = "${colors.base02}";
-        "content-padding" = 0;
-      };
-      "module/separatorIndent" = {
-        "type" = "custom/text";
-
-        "content" = " ";
         "content-foreground" = "${colors.base03}";
         "content-padding" = 0;
       };

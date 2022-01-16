@@ -15,6 +15,12 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
+		# ONLY ARCH DOESNT HAS USER REPO :KEK:
+    nurpkgs = {
+      url = github:nix-community/NUR;
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    
     # COLORS YAY
     nix-colors.url = "github:narutoxy/nix-colors";
 
@@ -23,13 +29,17 @@
       url = "github:nix-community/rnix-lsp";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # OVERLAY 
+    neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
   };
 
-  outputs = { self, nixpkgs, home-manager, utils, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, utils, nurpkgs, ... }@inputs:
     let
       extraSpecialArgs = {
-        inherit inputs self;
+        inherit inputs self nurpkgs home-manager;
         nix-colors = inputs.nix-colors.colorSchemes.ayu-mirage;
+				overlays = [ inputs.neovim-nightly-overlay.overlay inputs.nurpkgs.overlay ];
       };
     in {
       # inherit self inputs;
@@ -45,7 +55,7 @@
             {
               home-manager = {
                 inherit extraSpecialArgs;
-                useGlobalPkgs = true;
+                useGlobalPkgs = false;
                 useUserPackages = true;
                 users.naruto = import ./home;
               };
