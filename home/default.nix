@@ -116,7 +116,8 @@ in {
       extensions = with nur.repos.rycee.firefox-addons; [
 				ublock-origin
 				darkreader
-	i-dont-care-about-cookies			stylus
+				i-dont-care-about-cookies			
+				stylus
 				surfingkeys
 				terms-of-service-didnt-read
 				return-youtube-dislikes

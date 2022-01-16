@@ -30,7 +30,7 @@ in {
 
         "modules-left" =
           "round-left bspwm round-right";
-        "modules-center" = "round-left polywins round-right";
+        "modules-center" = "";
         "modules-right" =
           "round-left mpris pulseaudio round-right empty-space empty-space round-left wlan round-right empty-space empty-space round-left date round-right empty-space round-left powermenu round-right";
         "font-0" = "VictorMono Nerd Font:style=SemiBold:pixelsize=9;3";
@@ -176,7 +176,7 @@ in {
 
         "interval" = 1;
         "format" = "󰎆 <label>";
-        "format-padding" = 2;
+        "format-padding" = 1;
         "format-foreground" = "${colors.base0C}";
         "format-background" = "${colors.base02}";
       };
@@ -192,7 +192,7 @@ in {
     script = ''
       # killall -q polybar
       # while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
-
+      bspc monitor "VGA1" -d "1" "2" "3" "4" "5"
       polybar main &
     '';
   };
