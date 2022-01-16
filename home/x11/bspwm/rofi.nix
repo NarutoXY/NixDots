@@ -20,13 +20,13 @@ in {
         drun-display-format = "{name}";
       };
 
-      font = "SF Mono 9";
+      font = "Victor Mono SemiBold 9";
       theme = let inherit (config.lib.formats.rasi) mkLiteral;
       in {
         "*" = {
-          bg = mkLiteral "${colors.base01}";
+          bg = mkLiteral "${colors.base00}";
           fg = mkLiteral "${colors.base05}";
-          button = mkLiteral "${colors.base03}";
+          button = mkLiteral "${colors.base02}";
 
 					background-color = mkLiteral "@bg";
 					text-color = mkLiteral "@fg";
