@@ -37,9 +37,9 @@ in
       settings = {
         General = {
           # userColors = [ colors.base01 colors.base05 colors.base09 colors.base08 colors.base0A colors.base0B colors.base0C "picker" ];
-          uiColor = colors.base0B;
-          contrastUiColor = colors.base0B;
-          drawColor = colors.base0B;
+          uiColor = colors.base02;
+          contrastUiColor = colors.base01;
+          drawColor = colors.base0D;
         };
         };
       };
@@ -73,8 +73,8 @@ in
         VGA1 = [ "1" "2" "3" "4" "5" ];
       };
       settings = {
-        border_width = 5;
-        window_gap = 5;
+        border_width = 2;
+        window_gap = 10;
 
         active_border_color = colors.base0C;
         focused_border_color = colors.base0D;
@@ -86,7 +86,7 @@ in
         gapless_monocle = true;
         single_monocle = true;
 
-        top_padding =18;
+        top_padding =28;
         bottom_padding = 0;
       };
     };

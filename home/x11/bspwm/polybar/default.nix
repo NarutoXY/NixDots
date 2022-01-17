@@ -104,7 +104,7 @@ in {
       "module/powermenu" = {
         "type" = "custom/text";
 
-        "click-left" = "rofi -show power-menu -modi power-menu:~/.local/bin/rofi-power-menu";
+        "click-left" = "${pkgs.rofi}/bin/rofi -show power-menu -modi power-menu:${pkgs.rofi-power-menu}/bin/rofi-power-menu";
 
         "content" = " ";
         "content-padding" = 1;
@@ -190,8 +190,8 @@ in {
     };
 
     script = ''
-      # killall -q polybar
-      # while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
+      killall -q polybar
+      while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
       bspc monitor "VGA1" -d "1" "2" "3" "4" "5"
       polybar main &
     '';

@@ -33,7 +33,7 @@ in {
 				};
         window = {
           transparency = "real";
-          border-radius = mkLiteral "7px";
+          #border-radius = mkLiteral "7px";
           width = mkLiteral "40%";
           y-offset = mkLiteral "10px";
           padding = mkLiteral "20px";
