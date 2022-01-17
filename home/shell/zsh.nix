@@ -88,6 +88,7 @@ style = "bold red";
             ${builtins.readFile ./nix-completions.sh}
             ${builtins.readFile ./per-directory-history.zsh}
             ${builtins.readFile ./per-directory-history.zsh}
+            ${builtins.readfile ./ssh-agent.zsh}
             source ${pkgs.zsh-fzf-tab}/share/fzf-tab/fzf-tab.zsh
     '';
     shellAliases = {
