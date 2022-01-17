@@ -1,1 +1,0 @@
-/nix/store/x8n9ij5dqy876gzf2s6b8gzif5xv980i-hm_.configzsh.zshenv
