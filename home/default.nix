@@ -232,8 +232,6 @@ in {
           tabs.selected.odd.bg = "${colors.base02}";
           tabs.selected.even.fg = "${colors.base05}";
           tabs.selected.even.bg = "${colors.base02}";
-          webpage.bg = "${colors.base00}";
-          webpage.fg = "${colors.base05}";
         };
         fonts = {
           default_family = "JetBrainsMono Nerd Font";
@@ -259,8 +257,8 @@ in {
         content.canvas_reading = false;
         content.prefers_reduced_motion = true;
         qt.args = [
-          "enable-gpu-rasterization"
-          "ignore-gpu-blocklist"
+          # "enable-gpu-rasterization"
+          # "ignore-gpu-blocklist"
           "enable-accelerated-video-decode"
         ];
       };
@@ -317,7 +315,6 @@ in {
     ##### NETWORK TOOLS ##### -----------
     curl
     axel
-    qutebrowser
 
     ##### FILE MANIPULATION TOOLS ##### -
     trash-cli
