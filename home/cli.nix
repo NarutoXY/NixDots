@@ -12,7 +12,6 @@ in
   imports = [
     # shell config
     ./shell
-    ./app.nix
   ];
 
   programs.home-manager.enable = true;

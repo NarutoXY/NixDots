@@ -50,13 +50,13 @@ in
       fullscreen_delay_everything = { fullscreen = "delay"; };
       urgency_critical = {
         background = colors.base08;
-        foreground = colors.base05;
+        foreground = colors.base00;
         frame_color = colors.base08;
         timeout = 15;
       };
       urgency_low = {
         background = colors.base09;
-        foreground = colors.base05;
+        foreground = colors.base00;
         frame_color = colors.base09;
         timeout = 5;
       };
