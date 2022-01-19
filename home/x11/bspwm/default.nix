@@ -62,6 +62,7 @@ in
       enable = true;
       rules = {
         "Firefox" = { desktop = "^2"; };
+        "qutebrowser" = { desktop = "^2"; };
         "Vivaldi-stable" = { desktop = "^2"; };
         "Code" = { desktop = "^3"; };
         "mpv" = { desktop = "^4"; };
@@ -82,8 +83,6 @@ in
         presel_feedback_color = colors.base0B;
 
         split_ratio = 0.5;
-        borderless_monocle = true;
-        gapless_monocle = true;
         single_monocle = true;
 
         top_padding =28;

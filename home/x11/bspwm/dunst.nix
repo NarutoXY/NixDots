@@ -15,14 +15,13 @@ in
     settings = {
       global = {
         alignment = "center";
-        corner_radius = 1;
-        font = "VictorMono Nerd Font:style=Italic 10";
+        corner_radius = 8;
+        font = "JetBrainsMono Nerd Font 12";
         format = "<b>%s</b>\\n%b";
-        geometry = "250x200-15+50";
         width = 300;
         height = 200;
         horizontal_padding = 8;
-        icon_position = "left";
+        icon_position = "right";
         ignore_newline = "no";
         indicate_hidden = "yes";
         markup = "yes";
@@ -33,8 +32,7 @@ in
         mouse_right_click = "close_current";
         padding = 8;
         text_icon_padding = 3;
-        frame_width = 1;
-        plain_text = "no";
+        frame_width = 3;
         separator_color = "auto";
         stack_duplicates = true;
         separator_height = 3;
@@ -49,22 +47,21 @@ in
       };
       fullscreen_delay_everything = { fullscreen = "delay"; };
       urgency_critical = {
-        background = colors.base08;
-        foreground = colors.base00;
+        background = colors.base00;
+        foreground = colors.base06;
         frame_color = colors.base08;
         timeout = 15;
       };
       urgency_low = {
-        background = colors.base09;
-        foreground = colors.base00;
+        background = colors.base00;
+        foreground = colors.base06;
         frame_color = colors.base09;
         timeout = 5;
       };
       urgency_normal = {
         background = colors.base00;
-        foreground = colors.base05;
-        frame_color = colors.base00;
-        higlight = colors.base0B;
+        foreground = colors.base07;
+        frame_color = colors.base0C;
         timeout = 10;
       };
     };

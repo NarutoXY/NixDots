@@ -26,11 +26,11 @@ in {
         "*" = {
           bg = mkLiteral "${colors.base00}";
           fg = mkLiteral "${colors.base05}";
-          button = mkLiteral "${colors.base02}";
+          button = mkLiteral "${colors.base01}";
 
-					background-color = mkLiteral "@bg";
-					text-color = mkLiteral "@fg";
-				};
+          background-color = mkLiteral "@bg";
+          text-color = mkLiteral "@fg";
+        };
         window = {
           transparency = "real";
           #border-radius = mkLiteral "7px";
@@ -81,7 +81,7 @@ in {
           text-color = mkLiteral "inherit";
         };
         "element selected" = {
-          background-color = mkLiteral "@fg";
+          background-color = mkLiteral "${colors.base06}";
           text-color = mkLiteral "@bg";
           border-radius = mkLiteral "6px";
         };

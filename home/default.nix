@@ -137,7 +137,6 @@ in {
       };
       searchEngines = {
         DEFAULT = "https://search.brave.com/search?q={}";
-        dict = "https://www.dict.cc/?s={}";
       };
       settings = {
         colors = {
@@ -191,10 +190,10 @@ in {
           prompts.selected.fg = "${colors.base05}";
           statusbar.normal.fg = "${colors.base0B}";
           statusbar.normal.bg = "${colors.base00}";
-          statusbar.insert.fg = "${colors.base00}";
-          statusbar.insert.bg = "${colors.base0D}";
-          statusbar.passthrough.fg = "${colors.base00}";
-          statusbar.passthrough.bg = "${colors.base0C}";
+          statusbar.insert.bg = "${colors.base00}";
+          statusbar.insert.fg = "${colors.base0D}";
+          statusbar.passthrough.bg = "${colors.base00}";
+          statusbar.passthrough.fg = "${colors.base0C}";
           statusbar.private.fg = "${colors.base00}";
           statusbar.private.bg = "${colors.base01}";
           statusbar.command.fg = "${colors.base05}";
@@ -273,8 +272,9 @@ in {
         "xt" = "config-cycle tabs.show always never";
         "xx" =
           "config-cycle statusbar.show always never;; config-cycle tabs.show always never";
-        "<Alt-c>" = "tab-close";
+				"<Alt-C>" = "tab-close";
         "t" = "set-cmd-text -s :open -t";
+        ";" = "set-cmd-text -s :";
       };
     };
     mpv = {
@@ -308,7 +308,7 @@ in {
     ###########################################
     ##### DONT DELETE THIS PACKAGE PLEASE #####
     ###########################################
-    gnome3.dconf
+		dconf
     ###########################################
     ###########################################
 
