@@ -192,7 +192,7 @@ in {
     script = ''
       killall -q polybar
       while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
-      bspc monitor "VGA1" -d "1" "2" "3" "4" "5"
+      #bspc monitor "VGA1" -d "1" "2" "3" "4" "5"
       polybar main &
     '';
   };

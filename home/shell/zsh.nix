@@ -87,7 +87,6 @@ style = "bold red";
 			${builtins.readFile ./compe-tweaks.zsh}
             ${builtins.readFile ./nix-completions.sh}
             ${builtins.readFile ./per-directory-history.zsh}
-            ${builtins.readFile ./per-directory-history.zsh}
             ${builtins.readFile ./ssh-agent.zsh}
             source ${pkgs.zsh-fzf-tab}/share/fzf-tab/fzf-tab.zsh
     '';

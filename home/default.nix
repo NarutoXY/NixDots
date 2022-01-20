@@ -1,4 +1,4 @@
-{ nixpkgs, pkgs, nurpkgs, inputs, overlays, nix-colors, self, ... }:
+{ config, nixpkgs, pkgs, nurpkgs, inputs, overlays, nix-colors, self, ... }:
 
 # graphical session configuration
 # includes programs and services that work on both Wayland and X
@@ -10,7 +10,8 @@ let
     inherit pkgs;
     nurpkgs = pkgs;
   };
-in {
+
+in with inputs.nix-colors.lib { inherit pkgs; }; {
   # nixpkgs config
   nixpkgs = {
     config.allowUnfree = true;
@@ -37,9 +38,16 @@ in {
       package = pkgs.jetbrains-mono;
     };
 
-    # This allows me to change theme on ease by renaming folder
-    gtk3.extraConfig = { gtk-theme-name = "current"; };
+    theme = {
+      name = "${nix-colors.slug}";
+      package = gtkThemeFromScheme { scheme = nix-colors; };
+    };
   };
+
+	qt = {
+      enable = true;
+      platformTheme = "gtk";
+    };
 
   programs = {
     firefox = {
@@ -127,7 +135,6 @@ in {
         tree-style-tab
       ];
     };
-
     qutebrowser = {
       enable = true;
       aliases = {
@@ -135,9 +142,7 @@ in {
         "w" = "session-save";
         "q" = "quit";
       };
-      searchEngines = {
-        DEFAULT = "https://search.brave.com/search?q={}";
-      };
+      searchEngines = { DEFAULT = "https://search.brave.com/search?q={}"; };
       settings = {
         colors = {
           # SOURCE: https://github.com/theova/base16-qutebrowser/
@@ -272,7 +277,7 @@ in {
         "xt" = "config-cycle tabs.show always never";
         "xx" =
           "config-cycle statusbar.show always never;; config-cycle tabs.show always never";
-				"<Alt-C>" = "tab-close";
+        "<Alt-C>" = "tab-close";
         "t" = "set-cmd-text -s :open -t";
         ";" = "set-cmd-text -s :";
       };
@@ -308,7 +313,7 @@ in {
     ###########################################
     ##### DONT DELETE THIS PACKAGE PLEASE #####
     ###########################################
-		dconf
+    dconf
     ###########################################
     ###########################################
 

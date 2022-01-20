@@ -1,12 +1,11 @@
-{ config, pkgs, nix-colors, self, ... }:
+{ config, lib, pkgs, nix-colors, self, ... }:
 
 # most of X configuration
 
 let
   inherit (self.lib) mapAttrs x;
   colors = mapAttrs (n: v: x v) nix-colors.colors;
-in
-{
+in {
   imports = [
     #./autorandr.nix
     ./dunst.nix
@@ -25,8 +24,8 @@ in
     xorg.xprop
     xdotool
     xorg.xkill
-  	feh
-	siduck76-st # hmm because it works on xorg
+    feh
+    siduck76-st # hmm because it works on xorg
     libnotify
     wmctrl
   ];
@@ -41,8 +40,8 @@ in
           contrastUiColor = colors.base01;
           drawColor = colors.base0D;
         };
-        };
       };
+    };
   };
 
   # manage X session
@@ -60,6 +59,14 @@ in
 
     windowManager.bspwm = {
       enable = true;
+      package = pkgs.bspwm.overrideAttrs (oldAttrs: rec {
+        src = pkgs.fetchFromGitHub {
+          owner = "j-james";
+          repo = "bspwm-rounded-corners";
+          rev = "00e85df0505d2bfbd41234d1daf2f03c461b6a2b";
+          sha256 = "Bw2Cju5bcFnHUSc4C85mc9Kyg2pt+X3H1bwQQKokszY=";
+        };
+      });
       rules = {
         "Firefox" = { desktop = "^2"; };
         "qutebrowser" = { desktop = "^2"; };
@@ -67,12 +74,9 @@ in
         "Code" = { desktop = "^3"; };
         "mpv" = { desktop = "^4"; };
       };
-      startupPrograms = [
-        "sh ~/.fehbg"
-			];
-      monitors = {
-        VGA1 = [ "1" "2" "3" "4" "5" ];
-      };
+      startupPrograms =
+        [ "sh ~/.fehbg" "systemctl --user restart polybar.service" ];
+      monitors = { VGA1 = [ "1" "2" "3" "4" "5" ]; };
       settings = {
         border_width = 2;
         window_gap = 10;
@@ -85,7 +89,7 @@ in
         split_ratio = 0.5;
         single_monocle = true;
 
-        top_padding =28;
+        top_padding = 28;
         bottom_padding = 0;
       };
     };
@@ -120,9 +124,9 @@ in
     # white
     "*.color7" = colors.base05;
     "*.color15" = colors.base05;
-    
+
     # Xft
-    "Xft.antialias" =  1;
+    "Xft.antialias" = 1;
     "Xft.hiniting" = 1;
     "Xft.autohint" = 0;
     "Xft.hintstyle" = "hintslight";
