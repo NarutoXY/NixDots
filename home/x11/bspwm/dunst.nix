@@ -55,12 +55,12 @@ in
       urgency_low = {
         background = colors.base00;
         foreground = colors.base06;
-        frame_color = colors.base09;
+        frame_color = colors.base02;
         timeout = 5;
       };
       urgency_normal = {
         background = colors.base00;
-        foreground = colors.base07;
+        foreground = colors.base06;
         frame_color = colors.base0C;
         timeout = 10;
       };

@@ -350,6 +350,9 @@ in with inputs.nix-colors.lib { inherit pkgs; }; {
 
     ytmdesktop
     youtube-dl
+	
+		tree
+		gnome.nautilus
   ];
 }
 

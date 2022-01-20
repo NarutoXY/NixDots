@@ -91,6 +91,8 @@ in {
 
         top_padding = 28;
         bottom_padding = 0;
+
+        border_radius = 10;
       };
     };
   };
