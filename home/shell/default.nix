@@ -1,19 +1,13 @@
 { config, nix-colors, self, ... }:
 
 let
-inherit (self.lib) mapAttrs x;
-colors = mapAttrs (n: v: x v) nix-colors.colors;
-in
-{
-  imports = [
-    ./nix.nix
-    ./zsh.nix
-  ];
+  inherit (self.lib) mapAttrs x;
+  colors = mapAttrs (n: v: x v) nix-colors.colors;
+in {
+  imports = [ ./nix.nix ./zsh.nix ];
 
   # add locations to $PATH
-  home.sessionPath = [
-    "${config.home.homeDirectory}/.local/bin"
-  ];
+  home.sessionPath = [ "${config.home.homeDirectory}/.local/bin" ];
   # add environment variables
   home.sessionVariables = {
     EDITOR = "nvim";
@@ -29,7 +23,7 @@ in
     XDG_PUBLICSHARE_DIR = "$HOME/projects";
     XDG_DOCUMENTS_DIR = "$HOME/documents";
     XDG_MUSIC_DIR = "$HOME/music";
-    ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=${colors.base04},underline";
+    ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE = "fg=${colors.base04},underline";
     XDG_PICTURES_DIR = "$HOME/pics";
     XDG_VIDEOS_DIR = "$HOME/vids";
     XDG_USB_DIR = "$HOME/usb";

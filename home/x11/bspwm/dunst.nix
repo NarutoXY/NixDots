@@ -1,10 +1,9 @@
-{ nix-colors, config, pkgs, self,  ... }:
+{ nix-colors, config, pkgs, self, ... }:
 
 let
   inherit (self.lib) mapAttrs x;
   colors = mapAttrs (n: v: x v) nix-colors.colors;
-in
-{
+in {
   # notification daemon
   services.dunst = {
     enable = true;

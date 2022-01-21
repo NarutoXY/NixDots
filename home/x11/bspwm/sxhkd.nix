@@ -3,8 +3,7 @@
 let
   # user scripts
   s = "~/.local/bin";
-in
-{
+in {
   services.sxhkd = {
     enable = true;
     keybindings = {
@@ -25,7 +24,7 @@ in
       # quit bspwm normally
       "super + ctrl + q" = "bspc quit";
       # restart bspwm
-			"super + ctrl + r" = "bspc wm -r";
+      "super + ctrl + r" = "bspc wm -r";
       # close/kill
       "super + {_,shift + }q" = "bspc node -{c,k}";
       # monocle layout
@@ -36,14 +35,17 @@ in
       "super + g" = "bspc node -s biggest";
       # state/flags
       # set the window state
-      "super + {t,shift + t,s,f}" = "bspc node -t {tiled,pseudo_tiled,floating,fullscreen}";
+      "super + {t,shift + t,s,f}" =
+        "bspc node -t {tiled,pseudo_tiled,floating,fullscreen}";
       # set the node flags
-      "super + ctrl + {m,x,y,z}" = "bspc node -g {marked,locked,sticky,private}";
+      "super + ctrl + {m,x,y,z}" =
+        "bspc node -g {marked,locked,sticky,private}";
 
       # focus/swap
 
       # focus the node in the given direction
-      "super + {_,shift + }{h,j,k,l}" = "bspc node -{f,s} {west,south,north,east}";
+      "super + {_,shift + }{h,j,k,l}" =
+        "bspc node -{f,s} {west,south,north,east}";
       # focus the next/previous node in the current desktop
       "super + {_,shift + }c" = "bspc node -f {next,prev}.local";
       # focus the next/previous desktop in the current monitor
@@ -59,14 +61,17 @@ in
       # cancel the preselection for the focused node
       "super + ctrl + space" = "bspc node -p cancel";
       # cancel the preselection for the focused desktop
-      "super + ctrl + shift + space" = "bspc query -N -d | xargs -I id -n 1 bspc node id -p cancel";
+      "super + ctrl + shift + space" =
+        "bspc query -N -d | xargs -I id -n 1 bspc node id -p cancel";
 
       # move/resize
 
       # expand a window by moving one of its side outward
-      "super + alt + {h,j,k,l}" = "bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}";
+      "super + alt + {h,j,k,l}" =
+        "bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}";
       # contract a window by moving one of its side inward
-      "super + alt + shift + {h,j,k,l}" = "bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}";
+      "super + alt + shift + {h,j,k,l}" =
+        "bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}";
       # move a floating window
       "super + {Left,Down,Up,Right}" = "bspc node -v {-20 0,0 20,0 -20,20 0}";
       # rotate window layout clockwise 90 degrees
@@ -77,7 +82,8 @@ in
       # programs
 
       # screenshot selection
-      "{_, shift, alt} + Print" = "flameshot {gui -p, full -p,full -d 5000 -p} /home/naruto/pics/ss";
+      "{_, shift, alt} + Print" =
+        "flameshot {gui -p, full -p,full -d 5000 -p} /home/naruto/pics/ss";
       # screencast region
       # "alt + Print" = "${s}/scrrec -s ~/vids/scrrec/$(date +%F-%T).mp4";
       # powermenu
@@ -98,6 +104,6 @@ in
       "XF86Audio{Raise,Lower}Volume" = "amixer -q set Master 5%{+,-}";
       # toggle mute
       "XF86AudioMute" = "amixer set Master toggle";
-		};
+    };
   };
 }

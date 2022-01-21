@@ -44,10 +44,10 @@ in with inputs.nix-colors.lib { inherit pkgs; }; {
     };
   };
 
-	qt = {
-      enable = true;
-      platformTheme = "gtk";
-    };
+  qt = {
+    enable = true;
+    platformTheme = "gtk";
+  };
 
   programs = {
     firefox = {
@@ -350,9 +350,9 @@ in with inputs.nix-colors.lib { inherit pkgs; }; {
 
     ytmdesktop
     youtube-dl
-	
-		tree
-		gnome.nautilus
+
+    tree
+    gnome.nautilus
   ];
 }
 

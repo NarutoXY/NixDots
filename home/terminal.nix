@@ -66,8 +66,8 @@ in {
     font.name = font;
     font.size = 12;
     settings = {
-    	italic_font = ifont;
-    	bold_font = ifont;
+      italic_font = ifont;
+      bold_font = ifont;
       scrollback_lines = 10000;
       window_padding_width = 4;
       shell = "zsh";
@@ -81,9 +81,9 @@ in {
       # selection
       selection_background = colors.base02;
       selection_foreground = colors.base06;
-			# cursor
-			cursor = colors.base05;
-			cursor_text_color = colors.base03;
+      # cursor
+      cursor = colors.base05;
+      cursor_text_color = colors.base03;
       # black
       color0 = colors.base00;
       color8 = colors.base01;
@@ -108,8 +108,8 @@ in {
       # white
       color7 = colors.base05;
       color15 = colors.base05;
-			# url
-			url_color = colors.base0C;
+      # url
+      url_color = colors.base0C;
       # tabs
       active_tab_foreground = colors.base05;
       active_tab_background = colors.base02;

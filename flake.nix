@@ -15,12 +15,12 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-		# ONLY ARCH DOESNT HAS USER REPO :KEK:
+    # ONLY ARCH DOESNT HAS USER REPO :KEK:
     nurpkgs = {
-      url = github:nix-community/NUR;
+      url = "github:nix-community/NUR";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    
+
     # COLORS YAY
     nix-colors.url = "github:narutoxy/nix-colors";
 
@@ -39,7 +39,8 @@
       extraSpecialArgs = {
         inherit inputs self nurpkgs home-manager;
         nix-colors = inputs.nix-colors.colorSchemes.ayu-mirage;
-				overlays = [ inputs.neovim-nightly-overlay.overlay inputs.nurpkgs.overlay ];
+        overlays =
+          [ inputs.neovim-nightly-overlay.overlay inputs.nurpkgs.overlay ];
       };
     in {
       # inherit self inputs;
