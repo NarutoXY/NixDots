@@ -9,6 +9,3 @@ autoload -U edit-command-line
 zle -N edit-command-line
 bindkey '^xe' edit-command-line
 bindkey '^x^e' edit-command-line
-
-# Enable Shift-Tab to go backwards in completion list
-bindkey '^[[Z' reverse-menu-complete

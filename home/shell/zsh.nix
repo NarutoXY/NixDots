@@ -47,17 +47,8 @@ style = "bold red";
 		enableCompletion = true;
 		enableAutosuggestions = true;
 		enableSyntaxHighlighting = true;
+		defaultKeymap = "vicmd";
     autocd = true;
-    dirHashes = {
-      dl = "$HOME/downloads/";
-      docs = "$HOME/documents/";
-      code = "$HOME/projects/";
-      the = "$HOME/projects/themer/";
-      dots = "$HOME/.config/nixpkgs/";
-      pics = "$HOME/pics/";
-      vids = "$HOME/vids/";
-      nixpkgs = "$HOME/.config/nixpkgs/";
-    };
     dotDir = ".config/zsh";
     history = {
     	size = 500000;
@@ -75,31 +66,39 @@ style = "bold red";
         name = "nix-zsh-completions";
         src = pkgs.nix-zsh-completions;
 			}
+
       {
         name = "zsh-completions";
         src = pkgs.zsh-completions;
 			}
+      {
+        name = "zsh-fzf-tab";
+        src = pkgs.zsh-fzf-tab;
+			}
     ];
 
     initExtra = ''      
+			# Mappings
 			${builtins.readFile ./mappings.zsh}
+			# Options
 			${builtins.readFile ./options.zsh}
-			${builtins.readFile ./compe-tweaks.zsh}
+            # Nix Completions
             ${builtins.readFile ./nix-completions.sh}
+            # Per Directory History
             ${builtins.readFile ./per-directory-history.zsh}
-            ${builtins.readFile ./ssh-agent.zsh}
-            source ${pkgs.zsh-fzf-tab}/share/fzf-tab/fzf-tab.zsh
+
+            # SSH Agent
+            eval $(ssh-agent -s) > /dev/null
+            ssh-add ~/.ssh/github > /dev/null 2>&1
     '';
     shellAliases = {
       switch = "sudo nixos-rebuild switch --flake ~/.config/nixpkgs/";
-      ls = "exa -laHG --icons";
-      top = "gotop";
+      ls = " exa -laHG --icons --git";
+      top = "btop";
       v = "nvim";
       nv = "nvim";
       tmp = " cd $(mktemp -d)";
     };
-
-    shellGlobalAliases = { exa = "exa --icons --git"; };
   };
 }
 

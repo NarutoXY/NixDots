@@ -16,7 +16,7 @@ in
       global = {
         alignment = "center";
         corner_radius = 8;
-        font = "Operator Mono Medium 12";
+        font = "Victor Mono 9";
         format = "<b>%s</b>\\n%b";
         width = 300;
         height = 200;
