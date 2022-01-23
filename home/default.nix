@@ -119,6 +119,8 @@ in with inputs.nix-colors.lib { inherit pkgs; }; {
           "beacon.enabled" = false;
           "network.cookie.thirdparty.sessionOnly" = true;
           "network.cookie.thirdparty.nonsecureSessionOnly" = true;
+        
+					"toolkit.legacyUserProfileCustomizations.stylesheets" = true;
         };
         isDefault = true;
       };

@@ -99,7 +99,7 @@
     nodePackages.vls
 
     go
-    go-langserver
+    gopls
 
     rustc
     cargo
@@ -107,7 +107,7 @@
     python3
     python39Packages.pip
     pipenv
-    python-language-server
+    pyright
 
     github-cli
 
