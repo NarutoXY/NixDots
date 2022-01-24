@@ -1,8 +1,9 @@
-{ config, pkgs, ... }:
+{ config, pkgs, nix-colors, ... }:
 
 let
   # user scripts
   s = "~/.local/bin";
+  icolors = nix-colors.colors;
 in {
   services.sxhkd = {
     enable = true;

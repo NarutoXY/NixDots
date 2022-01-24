@@ -31,6 +31,7 @@
     wireless.enable = false; # Enables wireless support via wpa_supplicant.
     useDHCP = false;
     interfaces.enp2s0.useDHCP = true;
+    firewall.allowedTCPPorts = [ 57621 ];
   };
 
   time.timeZone = "Asia/Kolkata";

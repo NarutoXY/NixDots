@@ -4,7 +4,7 @@
 
 let
   inherit (self.lib) mapAttrs x0 x;
-  font = "Victor Mono Medium";
+  font = "Victor Mono SemiBold";
   acolors = mapAttrs (n: v: x0 v) nix-colors.colors;
   colors = mapAttrs (n: v: x v) nix-colors.colors;
 in {
@@ -47,7 +47,7 @@ in {
         "--multi"
         "--sort"
         "--color=fg:-1,bg:-1,hl:${colors.base0D}"
-        "--color=fg+:${colors.base06},bg+:${colors.base01},hl+:${colors.base0C}"
+        "--color=fg+:${colors.base06},bg+:${colors.base02},hl+:${colors.base0C}"
         "--color=info:${colors.base09},prompt:${colors.base08},pointer:${colors.base08}"
         "--color=marker:${colors.base0B},spinner:${colors.base0D},header:${colors.base0C}"
         "--bind '?:toggle-preview'"
@@ -65,5 +65,26 @@ in {
     };
     gpg.enable = true;
     ssh.enable = true;
+    
+    exa = {
+        enable = true;
+        enableAliases = true;
+      };
+    bat = {
+        enable = true;
+        config = {
+            theme = "TwoDark";
+            map-syntax = [ "*.jenkinsfile:Groovy" "*.props:Java Properties" ];
+          };
+      };
+    jq.enable = true;
   };
+
+  home.packages = with pkgs; [
+    tealdeer
+    hyperfine
+    rm-improved
+    glow
+    tree
+  ];
 }

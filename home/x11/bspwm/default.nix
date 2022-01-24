@@ -5,6 +5,7 @@
 let
   inherit (self.lib) mapAttrs x;
   colors = mapAttrs (n: v: x v) nix-colors.colors;
+  icolors = nix-colors.colors;
 in {
   imports = [
     #./autorandr.nix
@@ -25,12 +26,26 @@ in {
     xdotool
     xorg.xkill
     feh
-    siduck76-st # hmm because it works on xorg
     libnotify
     wmctrl
   ];
 
   services = {
+    screen-locker = {
+        enable = true;
+        inactiveInterval = 5;
+        lockCmd = ''
+    ${pkgs.i3lock-color}/bin/i3lock-color -n -i $HOME/pics/walls/gruvbox/stripes.jpg \
+    --inside-color=${icolors.base0E}ff --ring-color=${icolors.base05}ff --line-uses-inside \
+    --keyhl-color=${icolors.base0C}ff --bshl-color=${icolors.base0C}ff --separator-color =${icolors.base00}00 \
+    --insidever-color=${icolors.base0B}ff --insidewrong-color=${icolors.base08}ff \
+    --ringver-color = ${icolors.base05}ff --ringwrong-color=${icolors.base05}ff --ind-pos="x+86:y+1003" \
+    --radius=15 --verif-text="Verifying..." --wrong-text="WRONG!!"
+        '';
+        xautolock = {
+            extraOptions = [ "-corners ++++" ];
+          };
+      };
     flameshot = {
       enable = true;
       settings = {
@@ -39,7 +54,8 @@ in {
           uiColor = colors.base02;
           contrastUiColor = colors.base01;
           drawColor = colors.base0D;
-        };
+          disabledTrayIcon = true;
+          showStartupLaunchMessage = false;};
       };
     };
   };
@@ -104,7 +120,7 @@ in {
 
     # black
     "*.color0" = colors.base00;
-    "*.color8" = colors.base01;
+    "*.color8" = colors.base00;
     # red
     "*.color1" = colors.base08;
     "*.color9" = colors.base08;

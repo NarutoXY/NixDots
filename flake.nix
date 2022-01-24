@@ -38,7 +38,7 @@
     let
       extraSpecialArgs = {
         inherit inputs self nurpkgs home-manager;
-        nix-colors = inputs.nix-colors.colorSchemes.kanagawa;
+        nix-colors = inputs.nix-colors.colorSchemes.gruvbox-material-dark-hard;
         overlays =
           [ inputs.neovim-nightly-overlay.overlay inputs.nurpkgs.overlay ];
       };

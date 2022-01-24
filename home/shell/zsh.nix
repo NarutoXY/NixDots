@@ -88,7 +88,6 @@
                   ssh-add ~/.ssh/github > /dev/null 2>&1
           '';
     shellAliases = {
-      ls = " exa -laHG --icons --git";
       switch = "sudo nixos-rebuild switch --flake ~/.config/nixpkgs";
       top = "btop";
       v = "nvim";

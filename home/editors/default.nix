@@ -1,13 +1,13 @@
 { config, pkgs, lib, ... }:
 let
-  lua = with pkgs; [
+  luaPkgs = with pkgs; [
     luajit
     stylua
     sumneko-lua-language-server
     luajitPackages.luacheck
     selene
   ];
-  web = with pkgs; [
+  webPkgs = with pkgs; [
     nodejs
     nodePackages.pnpm
     jql
@@ -20,24 +20,25 @@ let
     nodePackages.vscode-langservers-extracted
     nodePackages.vls
   ];
-  nix = with pkgs; [ nixfmt rnix-lsp ];
-  go = with pkgs; [ go gopls ];
-  rust = with pkgs; [ cargo rustup rust-analyzer ];
-  python = with pkgs; [ python3 python39Packages.pip pipenv pyright ];
-  git = with pkgs; [ github-cli ];
-  editor = with pkgs; [ neovim ];
-  formatter = with pkgs; [ nodePackages.prettier ];
-  lsp = with pkgs; [
+  nixPkgs = with pkgs; [ nixfmt rnix-lsp ];
+  goPkgs = with pkgs; [ go gopls ];
+  rustPkgs = with pkgs; [rustup rust-analyzer ];
+  pythonPkgs = with pkgs; [ python3 python39Packages.pip pipenv pyright ];
+  gitPkgs = with pkgs; [ github-cli ];
+  editorPkgs = with pkgs; [ neovim ];
+  formatterPkgs = with pkgs; [ nodePackages.prettier ];
+  lspPkgs = with pkgs; [
     nodePackages.vim-language-server
     nodePackages.yaml-language-server
     nodePackages.dockerfile-language-server-nodejs
   ];
-  c = with pkgs; [ gnumake gcc ];
-  julia = with pkgs; [ julia-stable-bin ];
+  cPkgs = with pkgs; [ gnumake gcc ];
+  juliaPkgs = with pkgs; [ julia-stable-bin ];
 in {
   ### THE MOST FAMOUS KID
   programs.vscode = {
     enable = true;
+    package = pkgs.vscode-fhs;
     extensions = with pkgs.vscode-extensions; [
       yzhang.markdown-all-in-one
       vscodevim.vim
@@ -92,9 +93,7 @@ in {
       "editor.fontFamily" = "Victor Mono SemiBold";
       "editor.fontLigatures" = true;
       "explorer.decorations.badges" = false;
-      "workbench.colorTheme" = "Ayu Mirage";
       "editor.fontSize" = 16;
-      "workbench.preferredDarkColorTheme" = "Ayu Mirage";
       "typescript.suggest.paths" = false;
       "javascript.suggest.paths" = false;
     };
@@ -104,7 +103,7 @@ in {
   programs.git = {
     enable = true;
     delta.enable = true;
-    ignores = [ "*~" "*.swp" "result" "dist" ];
+    ignores = [ "*~" "target" ".node_modules" "*.log" "*.swp" "result" "dist" ];
     signing = {
       key = "BA2B56A17A1FC0FA";
       signByDefault = true;
@@ -113,6 +112,6 @@ in {
     userName = "Astro (Naruto Uzumaki)";
   };
 
-  home.packages = lua ++ web ++ nix ++ julia ++ go ++ rust ++ python ++ git
-    ++ lsp ++ editor ++ formatter ++ c;
+  home.packages = luaPkgs ++ webPkgs ++ nixPkgs ++ juliaPkgs ++ goPkgs ++ rustPkgs ++ pythonPkgs ++ gitPkgs
+    ++ lspPkgs ++ editorPkgs ++ formatterPkgs ++ cPkgs;
 }

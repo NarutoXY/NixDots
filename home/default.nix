@@ -10,6 +10,29 @@ let
     inherit pkgs;
     nurpkgs = pkgs;
   };
+	
+	# PACKAGES
+	essentialPkgs = with pkgs; [
+		dconf
+		killall
+		htop
+	];
+
+	networkPkgs = with pkgs; [
+		curl
+		axel
+	];
+	
+	filePkgs = with pkgs; [
+		unzip
+		trash-cli
+		gnome.nautilus
+	];
+
+	socialPkgs = with pkgs; [
+		ytmdesktop
+		youtube-dl
+	];
 
 in with inputs.nix-colors.lib { inherit pkgs; }; {
   # nixpkgs config
@@ -34,8 +57,8 @@ in with inputs.nix-colors.lib { inherit pkgs; }; {
     };
 
     font = {
-      name = "JetBrainsMono Nerd Font";
-      package = pkgs.jetbrains-mono;
+      name = "Victor Mono SemiBold";
+      package = pkgs.victor-mono;
     };
 
     theme = {
@@ -305,57 +328,7 @@ in with inputs.nix-colors.lib { inherit pkgs; }; {
     };
   };
 
-  # OTHER APPS
-  home.packages = with pkgs; [
-    ##### SYSTEM ADMIN TOOLS ##### -----
-    killall
-    btop
-    xdg-user-dirs
-
-    ###########################################
-    ##### DONT DELETE THIS PACKAGE PLEASE #####
-    ###########################################
-    dconf
-    ###########################################
-    ###########################################
-
-    ##### NETWORK TOOLS ##### -----------
-    curl
-    axel
-
-    ##### FILE MANIPULATION TOOLS ##### -
-    trash-cli
-    unzip
-
-    ##### SHELLS ##### ------------------
-    tmux
-
-    ##### BSPWM ##### --------------------
-    i3lock-color
-    xclip
-    eww
-
-    ##### CHEATSHEET ##### --------------
-    tealdeer
-
-    ##### RUST UTILS ##### --------------
-    exa
-    broot
-    ripgrep
-    bat
-    hyperfine
-    dua
-    rm-improved
-
-    ##### MISC UTILS ##### --------------
-    glow
-
-    ytmdesktop
-    youtube-dl
-
-    tree
-    gnome.nautilus
-  ];
+  home.packages = essentialPkgs ++ socialPkgs ++ networkPkgs ++ filePkgs;
 }
 
 # vim:set expandtab ft=nix ts=2 sw=2 noet:
