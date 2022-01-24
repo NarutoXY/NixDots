@@ -1,18 +1,17 @@
 { lib, config, pkgs, ... }:
 
 {
-  imports =
-    [
-      # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      ./fonts.nix
-    ];
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+    ./fonts.nix
+  ];
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
-	environment.pathsToLink = [ "/share/zsh" ];
+  environment.pathsToLink = [ "/share/zsh" ];
   nix = {
     extraOptions = ''
       keep-outputs = true
@@ -26,9 +25,7 @@
       options = "--delete-older-than 1d";
     };
   };
-    nixpkgs.config = {
-        allowUnfree = true;
-    };
+  nixpkgs.config = { allowUnfree = true; };
   networking = {
     hostName = "lambda"; # Define your hostname.
     wireless.enable = false; # Enables wireless support via wpa_supplicant.
@@ -37,8 +34,6 @@
   };
 
   time.timeZone = "Asia/Kolkata";
-
-
 
   services = {
     xserver = {
@@ -73,7 +68,9 @@
       enable = true;
       settings = {
         default_session = {
-          command = "${lib.makeBinPath [pkgs.greetd.tuigreet] }/tuigreet --time --cmd startx";
+          command = "${
+              lib.makeBinPath [ pkgs.greetd.tuigreet ]
+            }/tuigreet --time --cmd startx";
           user = "naruto";
         };
         initial_session = {
@@ -88,9 +85,7 @@
   sound.enable = true;
   hardware = {
     cpu.intel.updateMicrocode = true;
-    pulseaudio = {
-      enable = false;
-    };
+    pulseaudio = { enable = false; };
     opengl = {
       driSupport = true;
       extraPackages = with pkgs; [
@@ -122,7 +117,7 @@
       dockerCompat = true;
     };
   };
-  
+
   ## #### SERVERS ####
   ## services.nextcloud = {
   ##   enable = true;
@@ -141,9 +136,9 @@
     enable = true;
     # ensureDatabases = [ "nextcloud" ];
     ensureUsers = [
-    #  { name = "nextcloud";
-    #    ensurePermissions."DATABASE nextcloud" = "ALL PRIVILEGES";
-    #  }
+      #  { name = "nextcloud";
+      #    ensurePermissions."DATABASE nextcloud" = "ALL PRIVILEGES";
+      #  }
       { name = "naruto"; }
     ];
   };

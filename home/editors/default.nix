@@ -1,13 +1,13 @@
 { config, pkgs, lib, ... }:
 let
-  lua = [
+  lua = with pkgs; [
     luajit
     stylua
     sumneko-lua-language-server
     luajitPackages.luacheck
     selene
   ];
-  web = [
+  web = with pkgs; [
     nodejs
     nodePackages.pnpm
     jql
@@ -20,20 +20,20 @@ let
     nodePackages.vscode-langservers-extracted
     nodePackages.vls
   ];
-  nix = [ nixfmt rnix-lsp ];
-  go = [ go gopls ];
-  rust = [ cargo rustup rust-analyzer ];
-  python = [ python3 python39Packages.pip pipenv pyright ];
-  git = [ github-cli ];
-  editor = [ neovim ];
-  formatter = [ nodePackages.prettier ];
-  lsp = [
+  nix = with pkgs; [ nixfmt rnix-lsp ];
+  go = with pkgs; [ go gopls ];
+  rust = with pkgs; [ cargo rustup rust-analyzer ];
+  python = with pkgs; [ python3 python39Packages.pip pipenv pyright ];
+  git = with pkgs; [ github-cli ];
+  editor = with pkgs; [ neovim ];
+  formatter = with pkgs; [ nodePackages.prettier ];
+  lsp = with pkgs; [
     nodePackages.vim-language-server
     nodePackages.yaml-language-server
     nodePackages.dockerfile-language-server-nodejs
   ];
-  c = [ gnumake gcc ];
-  julia = [ julia-stable-bin ];
+  c = with pkgs; [ gnumake gcc ];
+  julia = with pkgs; [ julia-stable-bin ];
 in {
   ### THE MOST FAMOUS KID
   programs.vscode = {
@@ -113,7 +113,6 @@ in {
     userName = "Astro (Naruto Uzumaki)";
   };
 
-  home.packages = with pkgs;
-    lua ++ web ++ nix ++ julia ++ go ++ rust ++ python ++ git ++ lsp ++ editor
-    ++ formatter ++ c;
+  home.packages = lua ++ web ++ nix ++ julia ++ go ++ rust ++ python ++ git
+    ++ lsp ++ editor ++ formatter ++ c;
 }
