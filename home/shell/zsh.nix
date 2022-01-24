@@ -89,6 +89,7 @@
           '';
     shellAliases = {
       ls = " exa -laHG --icons --git";
+      switch = "sudo nixos-rebuild switch --flake ~/.config/nixpkgs";
       top = "btop";
       v = "nvim";
       nv = "nvim";

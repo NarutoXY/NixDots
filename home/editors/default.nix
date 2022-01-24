@@ -1,6 +1,40 @@
 { config, pkgs, lib, ... }:
-
-{
+let
+  lua = [
+    luajit
+    stylua
+    sumneko-lua-language-server
+    luajitPackages.luacheck
+    selene
+  ];
+  web = [
+    nodejs
+    nodePackages.pnpm
+    jql
+    nodePackages.eslint
+    nodePackages.svelte-language-server
+    nodePackages.typescript
+    nodePackages.typescript-language-server
+    nodePackages.node2nix
+    nodePackages."@tailwindcss/language-server"
+    nodePackages.vscode-langservers-extracted
+    nodePackages.vls
+  ];
+  nix = [ nixfmt rnix-lsp ];
+  go = [ go gopls ];
+  rust = [ cargo rustup rust-analyzer ];
+  python = [ python3 python39Packages.pip pipenv pyright ];
+  git = [ github-cli ];
+  editor = [ neovim ];
+  formatter = [ nodePackages.prettier ];
+  lsp = [
+    nodePackages.vim-language-server
+    nodePackages.yaml-language-server
+    nodePackages.dockerfile-language-server-nodejs
+  ];
+  c = [ gnumake gcc ];
+  julia = [ julia-stable-bin ];
+in {
   ### THE MOST FAMOUS KID
   programs.vscode = {
     enable = true;
@@ -79,55 +113,7 @@
     userName = "Astro (Naruto Uzumaki)";
   };
 
-  home.packages = with pkgs; [
-    luajit
-    stylua
-    sumneko-lua-language-server
-    luajitPackages.luacheck
-    selene
-
-    nodejs
-    nodePackages.pnpm
-    jql
-    nodePackages.eslint
-    nodePackages.svelte-language-server
-    nodePackages.typescript
-    nodePackages.typescript-language-server
-    nodePackages.node2nix
-    nodePackages."@tailwindcss/language-server"
-    nodePackages.vscode-langservers-extracted
-    nodePackages.vls
-
-    go
-    gopls
-
-    rustc
-    cargo
-
-    python3
-    python39Packages.pip
-    pipenv
-    pyright
-
-    github-cli
-
-    gnumake
-    gcc
-
-    android-tools
-
-    julia-stable-bin
-
-    rnix-lsp
-    nodePackages.vim-language-server
-    nodePackages.yaml-language-server
-    nodePackages.dockerfile-language-server-nodejs
-
-    stylua
-    nixfmt
-    nodePackages.prettier
-
-    # I LIKE MY IMPERATIVE CONFIG OF NEOVIM
-    neovim
-  ];
+  home.packages = with pkgs;
+    lua ++ web ++ nix ++ julia ++ go ++ rust ++ python ++ git ++ lsp ++ editor
+    ++ formatter ++ c;
 }
