@@ -77,17 +77,18 @@
       			${builtins.readFile ./mappings.zsh}
       			# Options
       			${builtins.readFile ./options.zsh}
-                  # Nix Completions
-                  ${builtins.readFile ./nix-completions.sh}
-                  # Per Directory History
-                  ${builtins.readFile ./per-directory-history.zsh}
-                  # fzf-tab
-                  source ${pkgs.zsh-fzf-tab}/share/fzf-tab/fzf-tab.zsh
-                  # SSH Agent
-                  eval $(ssh-agent -s) > /dev/null
-                  ssh-add ~/.ssh/github > /dev/null 2>&1
+            # Nix Completions
+            ${builtins.readFile ./nix-completions.sh}
+            # Per Directory History
+            ${builtins.readFile ./per-directory-history.zsh}
+            # fzf-tab
+            source ${pkgs.zsh-fzf-tab}/share/fzf-tab/fzf-tab.zsh
+            # SSH Agent
+            eval $(ssh-agent -s) > /dev/null
+            ssh-add ~/.ssh/github > /dev/null 2>&1
           '';
     shellAliases = {
+      ls = "exa -laHG --icons --git";
       switch = "sudo nixos-rebuild switch --flake ~/.config/nixpkgs";
       top = "btop";
       v = "nvim";

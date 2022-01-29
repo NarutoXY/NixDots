@@ -47,7 +47,7 @@ in {
         "--multi"
         "--sort"
         "--color=fg:-1,bg:-1,hl:${colors.base0D}"
-        "--color=fg+:${colors.base06},bg+:${colors.base02},hl+:${colors.base0C}"
+        "--color=fg+:${colors.base06},bg+:${colors.base01},hl+:${colors.base0C}"
         "--color=info:${colors.base09},prompt:${colors.base08},pointer:${colors.base08}"
         "--color=marker:${colors.base0B},spinner:${colors.base0D},header:${colors.base0C}"
         "--bind '?:toggle-preview'"
@@ -68,7 +68,6 @@ in {
     
     exa = {
         enable = true;
-        enableAliases = true;
       };
     bat = {
         enable = true;
