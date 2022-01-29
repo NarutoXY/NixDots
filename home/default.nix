@@ -32,6 +32,7 @@ let
 	socialPkgs = with pkgs; [
 		ytmdesktop
 		youtube-dl
+		peek
 	];
 
 in with inputs.nix-colors.lib { inherit pkgs; }; {
