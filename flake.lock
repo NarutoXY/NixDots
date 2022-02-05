@@ -133,11 +133,11 @@
     },
     "nix-colors": {
       "locked": {
-        "lastModified": 1644062920,
-        "narHash": "sha256-UpFG8xkMbOtsAI30xyxl/V2OiuNF5F4WcxQXESL4nzc=",
+        "lastModified": 1644063200,
+        "narHash": "sha256-SNkPJ56mSH1GCB+aa/4ZiY0k5rkLSMfAnI1vzqQLlNo=",
         "owner": "narutoxy",
         "repo": "nix-colors",
-        "rev": "a7e99c95d77bc88a799f467a1939878fcea8047c",
+        "rev": "9e4864757dd1e31f6282340fc086e636c9152e05",
         "type": "github"
       },
       "original": {
