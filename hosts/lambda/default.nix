@@ -148,12 +148,6 @@
     '';
   };
     
-  environment.persistence."/data" = {
-    directories = [
-      "/var/lib/postgresql"
-    ];
-  };
-  
   # ensure that postgres is running *before* running the setup
   systemd.services."nextcloud-setup" = {
     requires = ["postgresql.service"];
