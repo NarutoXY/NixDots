@@ -33,7 +33,7 @@ in {
   services = {
     screen-locker = {
         enable = true;
-        inactiveInterval = 5;
+        inactiveInterval = 1;
         lockCmd = ''
     ${pkgs.i3lock-color}/bin/i3lock-color -n -i $HOME/pics/walls/gruvbox/stripes.jpg \
     --inside-color=${icolors.base0E}ff --ring-color=${icolors.base05}ff --line-uses-inside \

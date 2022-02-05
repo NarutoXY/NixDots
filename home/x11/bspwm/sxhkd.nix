@@ -19,7 +19,9 @@ in {
       "super + Escape" = "pkill -USR1 -x sxhkd";
       # pause/resume notifications
       "super + ctrl + Escape" = "dunstctl set-paused toggle";
-
+      # lock screen
+      "super + l" = "${pkgs.i3lock-color}/bin/i3lock-color -n -i $HOME/pics/walls/waves_off_kanagawa.jpg --inside-color=${icolors.base0E}ff --ring-color=${icolors.base05}ff --line-uses-inside --keyhl-color=${icolors.base0C}ff --bshl-color=${icolors.base0C}ff --separator-color =${icolors.base00}00 --insidever-color=${icolors.base0B}ff --insidewrong-color=${icolors.base08}ff --ringver-color = ${icolors.base05}ff --ringwrong-color=${icolors.base05}ff --ind-pos='x+86:y+1003' --radius=15 --verif-text='Verifying...' --wrong-text='WRONG!!'";
+      
       # bspwm hotkeys
 
       # quit bspwm normally

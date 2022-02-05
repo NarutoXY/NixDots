@@ -142,9 +142,18 @@
       }
       { name = "naruto"; }
     ];
-    extraConfig = ;
+    authentication = pkgs.lib.mkOverride 12 ''
+      local all all trust
+      host all all ::1/128 trust
+    '';
   };
-
+    
+  environment.persistence."/data" = {
+    directories = [
+      "/var/lib/postgresql"
+    ];
+  };
+  
   # ensure that postgres is running *before* running the setup
   systemd.services."nextcloud-setup" = {
     requires = ["postgresql.service"];
