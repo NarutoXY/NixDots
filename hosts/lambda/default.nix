@@ -119,38 +119,39 @@
     };
   };
 
-  ## #### SERVERS ####
-  ## services.nextcloud = {
-  ##   enable = true;
-  ##   hostName = "nextcloud.tld";
-  ##   config = {
-  ##     dbtype = "pgsql";
-  ##     dbuser = "nextcloud";
-  ##     dbhost = "/run/postgresql"; # nextcloud will add /.s.PGSQL.5432 by itself
-  ##     dbname = "nextcloud";
-  ##     adminpassFile = "/path/to/admin-pass-file";
-  ##     adminuser = "root";
-  ##   };
-  ## };
+  #### SERVERS ####
+  services.nextcloud = {
+    enable = true;
+    hostName = "nextcloud.tld";
+    config = {
+      dbtype = "pgsql";
+      dbuser = "nextcloud";
+      dbhost = "/run/postgresql"; # nextcloud will add /.s.PGSQL.5432 by itself
+      dbname = "nextcloud";
+      adminpassFile = "/path/to/admin-pass-file";
+      adminuser = "root";
+    };
+  };
 
   services.postgresql = {
     enable = true;
-    # ensureDatabases = [ "nextcloud" ];
+    ensureDatabases = [ "nextcloud" ];
     ensureUsers = [
-      #  { name = "nextcloud";
-      #    ensurePermissions."DATABASE nextcloud" = "ALL PRIVILEGES";
-      #  }
+      { name = "nextcloud";
+        ensurePermissions."DATABASE nextcloud" = "ALL PRIVILEGES";
+      }
       { name = "naruto"; }
     ];
+    extraConfig = ;
   };
 
-  ## # ensure that postgres is running *before* running the setup
-  ## systemd.services."nextcloud-setup" = {
-  ##   requires = ["postgresql.service"];
-  ##   after = ["postgresql.service"];
-  ## };
+  # ensure that postgres is running *before* running the setup
+  systemd.services."nextcloud-setup" = {
+    requires = ["postgresql.service"];
+    after = ["postgresql.service"];
+  };
 
-  ## networking.firewall.allowedTCPPorts = [ 80 443 ];
+  networking.firewall.allowedTCPPorts = [ 80 443 ];
 
   #### DANGER ZONE ####
   system.stateVersion = "21.05"; # Never ever change this ducks.

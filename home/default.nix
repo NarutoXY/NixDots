@@ -35,6 +35,10 @@ let
 		peek
 	];
 
+	miscGUIPkgs = with pkgs; [
+		xfce.parole
+	];
+
 in with inputs.nix-colors.lib { inherit pkgs; }; {
   # nixpkgs config
   nixpkgs = {
@@ -58,8 +62,8 @@ in with inputs.nix-colors.lib { inherit pkgs; }; {
     };
 
     font = {
-      name = "Victor Mono SemiBold";
-      package = pkgs.victor-mono;
+      name = "Roboto";
+      package = pkgs.roboto;
     };
 
     theme = {
@@ -774,7 +778,7 @@ window,
     };
   };
 
-  home.packages = essentialPkgs ++ socialPkgs ++ networkPkgs ++ filePkgs;
+  home.packages = essentialPkgs ++ socialPkgs ++ networkPkgs ++ filePkgs ++ miscGUIPkgs;
 }
 
 # vim:set expandtab ft=nix ts=2 sw=2 noet:

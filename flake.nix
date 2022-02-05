@@ -22,7 +22,7 @@
     };
 
     # COLORS YAY
-    nix-colors.url = "github:narutoxy/nix-colors";
+    nix-colors.url = "github:narutoxy/nix-colors/main";
 
     # NIX LSP
     rnix-lsp = {

@@ -94,6 +94,29 @@
       v = "nvim";
       nv = "nvim";
       tmp = " cd $(mktemp -d)";
+
+
+      ga = "git add";
+      gb = "git branch";
+      gc = "git commit";
+      gca = "git commit --amend";
+      gcm = "git commit -m";
+      gco = "git checkout";
+      gd = "git diff";
+      gds = "git diff --staged";
+      gp = "git push";
+      gpl = "git pull";
+      gl = "git log";
+      gr = "git rebase";
+      gs = "git status --short";
+      gss = "git status";
+
+      us = "systemctl --user";
+
+      grep = "grep --color";
+      ip = "ip --color";
+      md = "mkdir -p";
+      rm = "rip"; # I am used to rm but rip is :noice:
     };
   };
 }
