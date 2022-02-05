@@ -31,7 +31,7 @@
     wireless.enable = false; # Enables wireless support via wpa_supplicant.
     useDHCP = false;
     interfaces.enp2s0.useDHCP = true;
-    firewall.allowedTCPPorts = [ 57621 ];
+    firewall.allowedTCPPorts = [ 57621 80 443 ];
   };
 
   time.timeZone = "Asia/Kolkata";
@@ -159,8 +159,6 @@
     requires = ["postgresql.service"];
     after = ["postgresql.service"];
   };
-
-  networking.firewall.allowedTCPPorts = [ 80 443 ];
 
   #### DANGER ZONE ####
   system.stateVersion = "21.05"; # Never ever change this ducks.
