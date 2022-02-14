@@ -32,7 +32,7 @@ in {
   };
 
   programs = {
-    fzf = {
+    skim = {
       enable = true;
       enableZshIntegration = true;
       defaultCommand =
@@ -42,17 +42,13 @@ in {
         "--exact"
       ];
       defaultOptions = [
-        "--prompt='~ ' --pointer='▶' --marker='✗'"
         "--layout=reverse"
         "--multi"
-        "--sort"
-        "--color=fg:-1,bg:-1,hl:${colors.base0D}"
-        "--color=fg+:${colors.base06},bg+:${colors.base01},hl+:${colors.base0C}"
-        "--color=info:${colors.base09},prompt:${colors.base08},pointer:${colors.base08}"
-        "--color=marker:${colors.base0B},spinner:${colors.base0D},header:${colors.base0C}"
-        "--bind '?:toggle-preview'"
-        "--bind 'ctrl-a:select-all'"
-        "--bind 'ctrl-e:execute(echo {+} | xargs -o nvim)'"
+	"--color=fg:${colors.base05},bg:${colors.base00},current_bg:${colors.base01},info:${colors.base09}"
+	"--bind '?:toggle-preview'"
+        "--bind 'alt-a:select-all'"
+        "--bind 'alt-d:deselect-all'"
+        "--bind 'alt-e:execute(echo {+} | xargs -o nvim)'"
         "--height=80%"
         "--preview-window=:hidden"
         "--info=inline"
@@ -60,8 +56,6 @@ in {
       ];
       changeDirWidgetCommand =
         "${pkgs.fd}/bin/fd --type d --hidden --exclude '.git' --exclude '.pnpm-store' --exclude 'node_modules'";
-      historyWidgetOptions = [ "--sort" ];
-
     };
     gpg.enable = true;
     ssh.enable = true;
@@ -71,17 +65,18 @@ in {
       };
     bat = {
         enable = true;
-        config = {
-            theme = "TwoDark";
-            map-syntax = [ "*.jenkinsfile:Groovy" "*.props:Java Properties" ];
-          };
+      	config = {
+		theme = "TwoDark";
+	};
       };
     jq.enable = true;
   };
 
   home.packages = with pkgs; [
+    ripgrep
     tealdeer
     hyperfine
+    btop
     rm-improved
     glow
     tree

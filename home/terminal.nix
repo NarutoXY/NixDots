@@ -4,7 +4,7 @@
 
 let
   inherit (self.lib) mapAttrs x0 x;
-  font = "Victor Mono SemiBold";
+  font = "FiraCode Nerd Font";
   ifont = "Victor Mono";
   acolors = mapAttrs (n: v: x0 v) nix-colors.colors;
   colors = mapAttrs (n: v: x v) nix-colors.colors;
@@ -56,13 +56,12 @@ in {
           white = acolors.base06;
         };
       };
-      background_opacity = 0.9;
       shell.program = "zsh";
     };
   };
 
   programs.kitty = {
-    enable = true;
+    enable = false;
     font.name = font;
     font.size = 12;
     settings = {

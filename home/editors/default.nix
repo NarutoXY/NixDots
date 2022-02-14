@@ -23,8 +23,8 @@ let
   nixPkgs = with pkgs; [ nixfmt rnix-lsp ];
   goPkgs = with pkgs; [ go gopls ];
   rustPkgs = with pkgs; [rustup rust-analyzer ];
-  pythonPkgs = with pkgs; [ python3 python39Packages.pip pipenv pyright ];
-  gitPkgs = with pkgs; [ github-cli ];
+  pythonPkgs = with pkgs; [ python311 python311Packages.pip pipenv pyright ];
+  gitPkgs = with pkgs; [ github-cli hub ];
   editorPkgs = with pkgs; [ neovim ];
   formatterPkgs = with pkgs; [ nodePackages.prettier ];
   lspPkgs = with pkgs; [
@@ -103,7 +103,10 @@ in {
   programs.git = {
     enable = true;
     delta.enable = true;
-    ignores = [ "*~" "target" ".node_modules" "*.log" "*.swp" "result" "dist" ];
+    extraConfig = { 
+			hub.protocol = "ssh";
+    };
+		ignores = [ "*~" "target" ".node_modules" "*.log" "*.swp" "result" "dist" ];
     signing = {
       key = "BA2B56A17A1FC0FA";
       signByDefault = true;

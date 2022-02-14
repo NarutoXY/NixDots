@@ -4,8 +4,6 @@ bindkey "\e[3~" delete-char
 # Fix Ctrl+u killing from the cursor instead of the whole line
 bindkey \^U backward-kill-line
 
-# Use Ctrl+x-(Ctrl+)e to edit the current command line in VISUAL/EDITOR
-autoload -U edit-command-line
-zle -N edit-command-line
-bindkey '^xe' edit-command-line
-bindkey '^x^e' edit-command-line
+# substring
+bindkey -M emacs '^P' history-substring-search-up
+bindkey -M emacs '^N' history-substring-search-down

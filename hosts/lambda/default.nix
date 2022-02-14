@@ -1,6 +1,8 @@
-{ lib, config, pkgs, ... }:
-
-{
+{ lib, config, pkgs, inputs, ... }:
+let
+  colors = inputs.nix-colors.colorSchemes.kanagawa;
+in
+with inputs.nix-colors.lib { inherit pkgs; }; {
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
@@ -43,10 +45,28 @@
       xkbOptions = "eurosign:e";
       autorun = false;
       exportConfiguration = true;
-      #        desktopManager.default = "none";
+      # desktopManager.default = "none";
       displayManager = {
         defaultSession = "none+bspwm";
-        startx.enable = true;
+        lightdm = {
+          enable = true;
+          greeters.enso = {
+            enable = true;
+            blur = true;
+            iconTheme = {
+              name = "Zafiro-icons";
+              package = pkgs.zafiro-icons;
+            };
+            cursorTheme = {
+              package = pkgs.bibata-cursors;
+              name = "Bibata-Modern-Ice";
+            };
+            theme = {
+              name = "${colors.slug}";
+              package = gtkThemeFromScheme { scheme = colors; };
+            };
+          };
+        };
         autoLogin.enable = true;
         autoLogin.user = "naruto";
       };
@@ -64,21 +84,6 @@
       alsa.enable = true;
       alsa.support32Bit = true;
       pulse.enable = true;
-    };
-    greetd = {
-      enable = true;
-      settings = {
-        default_session = {
-          command = "${
-              lib.makeBinPath [ pkgs.greetd.tuigreet ]
-            }/tuigreet --time --cmd startx";
-          user = "naruto";
-        };
-        initial_session = {
-          command = "startx";
-          user = "naruto";
-        };
-      };
     };
   };
 
@@ -103,13 +108,7 @@
     extraGroups = [ "wheel" ];
   };
 
-  environment.systemPackages = with pkgs; [
-    killall
-    coreutils
-    vim
-    xorg.xprop
-    wmctrl
-  ];
+  environment.systemPackages = with pkgs; [ killall coreutils vim ];
 
   programs.bash.enableCompletion = true;
   virtualisation = {
@@ -122,9 +121,7 @@
   #### SERVERS ####
   services.postgresql = {
     enable = true;
-    ensureUsers = [
-      { name = "naruto"; }
-    ];
+    ensureUsers = [{ name = "naruto"; }];
     authentication = pkgs.lib.mkOverride 12 ''
       local all all trust
       host all all ::1/128 trust

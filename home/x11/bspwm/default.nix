@@ -28,6 +28,7 @@ in {
     feh
     libnotify
     wmctrl
+    betterlockscreen
   ];
 
   services = {
@@ -35,13 +36,8 @@ in {
         enable = true;
         inactiveInterval = 1;
         lockCmd = ''
-    ${pkgs.i3lock-color}/bin/i3lock-color -n -i $HOME/pics/walls/gruvbox/stripes.jpg \
-    --inside-color=${icolors.base0E}ff --ring-color=${icolors.base05}ff --line-uses-inside \
-    --keyhl-color=${icolors.base0C}ff --bshl-color=${icolors.base0C}ff --separator-color =${icolors.base00}00 \
-    --insidever-color=${icolors.base0B}ff --insidewrong-color=${icolors.base08}ff \
-    --ringver-color = ${icolors.base05}ff --ringwrong-color=${icolors.base05}ff --ind-pos="x+86:y+1003" \
-    --radius=15 --verif-text="Verifying..." --wrong-text="WRONG!!"
-        '';
+	  betterlockscreen -l
+	'';
         xautolock = {
             extraOptions = [ "-corners ++++" ];
           };
@@ -150,10 +146,5 @@ in {
     "Xft.hintstyle" = "hintslight";
     "Xft.rgba" = "rgb";
     "Xft.lcdfilter" = "lcddefault";
-
-    # ST
-    "st.borderpx" = 15;
-    "st.font" = "VictorMono Nerd Font:style:medium:pixelsize=15";
-    "st.alpha" = "0.8";
   };
 }

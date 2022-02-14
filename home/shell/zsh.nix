@@ -9,8 +9,8 @@
   };
 
   programs.starship = {
-    enable = true;
-    enableZshIntegration = true;
+    enable = false;
+    enableZshIntegration = false;
     settings = {
       add_newline = true;
       git_status = {
@@ -43,11 +43,46 @@
   };
 
   programs.zsh = {
+    zplug = {
+      enable = true;
+      zplugHome = ~/.config/zsh/zplug;
+      plugins = [
+        {
+          name = "mafredri/zsh-async";
+          tags = [ "from:github" ];
+        }
+        {
+          name = "sindresorhus/pure";
+          tags = [ "use:pure.zsh" "from:github" "as:theme" ];
+        }
+        {
+          name = "zsh-users/zsh-history-substring-search";
+          tags = [ "from:github" "defer:2" ];
+        }
+        {
+          name = "jimhester/per-directory-history";
+          tags =
+            [ "from:github" "defer:2" "use:zsh-per-directory-history.zsh" ];
+        }
+        {
+          name = "chisui/zsh-nix-shell";
+          tags = [ "from:github" "defer:3" ];
+        }
+        {
+          name = "zsh-users/zsh-syntax-highlighting";
+          tags = [ "from:github" "defer:1" ];
+        }
+        {
+          name = "zsh-users/zsh-autosuggestions";
+          tags = [ "from:github" "defer:2" ];
+        }
+        {
+          name = "zsh-users/zsh-completions";
+          tags = [ "from:github" ];
+        }
+      ];
+    };
     enable = true;
-    enableCompletion = true;
-    enableAutosuggestions = true;
-    enableSyntaxHighlighting = true;
-    defaultKeymap = "viins";
     autocd = true;
     dotDir = ".config/zsh";
     history = {
@@ -61,32 +96,17 @@
       path = "${config.xdg.dataHome}/zsh_history";
     };
 
-    plugins = [
-      {
-        name = "nix-zsh-completions";
-        src = pkgs.nix-zsh-completions;
-      }
-      {
-        name = "zsh-completions";
-        src = pkgs.zsh-completions;
-      }
-    ];
-
     initExtra = ''
       			# Mappings
-      			${builtins.readFile ./mappings.zsh}
-      			# Options
-      			${builtins.readFile ./options.zsh}
+            ${builtins.readFile ./mappings.zsh}
+            # Options
+            ${builtins.readFile ./options.zsh}
             # Nix Completions
             ${builtins.readFile ./nix-completions.sh}
-            # Per Directory History
-            ${builtins.readFile ./per-directory-history.zsh}
-            # fzf-tab
-            source ${pkgs.zsh-fzf-tab}/share/fzf-tab/fzf-tab.zsh
             # SSH Agent
             eval $(ssh-agent -s) > /dev/null
             ssh-add ~/.ssh/github > /dev/null 2>&1
-          '';
+                      '';
     shellAliases = {
       ls = "exa -laHG --icons --git";
       switch = "sudo nixos-rebuild switch --flake ~/.config/nixpkgs";
@@ -94,7 +114,6 @@
       v = "nvim";
       nv = "nvim";
       tmp = " cd $(mktemp -d)";
-
 
       ga = "git add";
       gb = "git branch";
@@ -120,5 +139,3 @@
     };
   };
 }
-
-# vim:set filetype=nix:
