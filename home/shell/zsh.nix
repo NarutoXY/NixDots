@@ -45,7 +45,6 @@
   programs.zsh = {
     zplug = {
       enable = true;
-      zplugHome = ~/.config/zsh/zplug;
       plugins = [
         {
           name = "mafredri/zsh-async";
@@ -57,24 +56,24 @@
         }
         {
           name = "zsh-users/zsh-history-substring-search";
-          tags = [ "from:github" "defer:2" ];
+          tags = [ "from:github" ];
         }
         {
           name = "jimhester/per-directory-history";
           tags =
-            [ "from:github" "defer:2" "use:zsh-per-directory-history.zsh" ];
+            [ "from:github" "use:zsh-per-directory-history.zsh" ];
         }
         {
           name = "chisui/zsh-nix-shell";
-          tags = [ "from:github" "defer:3" ];
+          tags = [ "from:github" ];
         }
         {
           name = "zsh-users/zsh-syntax-highlighting";
-          tags = [ "from:github" "defer:1" ];
+          tags = [ "from:github" ];
         }
         {
           name = "zsh-users/zsh-autosuggestions";
-          tags = [ "from:github" "defer:2" ];
+          tags = [ "from:github" ];
         }
         {
           name = "zsh-users/zsh-completions";

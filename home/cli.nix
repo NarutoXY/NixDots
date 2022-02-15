@@ -51,7 +51,7 @@ in {
         "--bind 'alt-e:execute(echo {+} | xargs -o nvim)'"
         "--height=80%"
         "--preview-window=:hidden"
-        "--info=inline"
+        "--inline-info"
         "--preview '([[ -f {} ]] && (bat --style=numbers --color=always {} || cat {})) || ([[ -d {} ]] && (tree -C {} | less)) || echo {} 2> /dev/null | head -200'"
       ];
       changeDirWidgetCommand =

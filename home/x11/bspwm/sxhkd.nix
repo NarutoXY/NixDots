@@ -11,7 +11,8 @@ in {
       # general
 
       # start terminal
-      "super + {shift, _} + Return" = "{kitty, alacritty}";
+      "super + Return" = "alacritty";
+      "super + shift + Return" = "kitty";
       # application launcher
       "super + @space" = "rofi -show drun";
       "Menu" = "rofi -show drun";

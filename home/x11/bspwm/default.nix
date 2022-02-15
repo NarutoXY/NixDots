@@ -20,7 +20,8 @@ in {
   # X specific programs
   home.packages = with pkgs; [
     dunst # for dunstctl
-    playerctl
+xorg.xinit
+playerctl
     xclip
     xorg.xprop
     xdotool

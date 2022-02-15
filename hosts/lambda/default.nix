@@ -1,6 +1,6 @@
 { lib, config, pkgs, inputs, ... }:
 let
-  colors = inputs.nix-colors.colorSchemes.kanagawa;
+  colors = inputs.nix-colors.colorSchemes.rose-pine;
 in
 with inputs.nix-colors.lib { inherit pkgs; }; {
   imports = [
@@ -72,7 +72,7 @@ with inputs.nix-colors.lib { inherit pkgs; }; {
       };
       windowManager.bspwm.enable = true;
       desktopManager.xterm.enable = false;
-      videoDrivers = [ "intel" ];
+videoDrivers = [ "intel" ];
       deviceSection = ''
         Option "DRI" "2"
         Option "TearFree" "true"
