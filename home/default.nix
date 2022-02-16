@@ -62,8 +62,8 @@ in with inputs.nix-colors.lib { inherit pkgs; }; {
     };
 
     font = {
-      name = "Roboto";
-      package = pkgs.roboto;
+      name = "Cantarell";
+      package = pkgs.cantarell-fonts;
     };
 
     theme = {
@@ -149,9 +149,6 @@ in with inputs.nix-colors.lib { inherit pkgs; }; {
           "network.cookie.thirdparty.nonsecureSessionOnly" = true;
 
           "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
-        	"layers.acceleration.force-enabled" = true;
-					"gfx.webrender.all" = true;
-					"svg.context-properties.content.enabled" = true;
 				};
         isDefault = true;
       };

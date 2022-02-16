@@ -9,8 +9,9 @@
   };
 
   programs.starship = {
-    enable = false;
+    enable = true;
     enableZshIntegration = false;
+    enableBashIntegration = true;
     settings = {
       add_newline = true;
       git_status = {
@@ -55,15 +56,6 @@
           tags = [ "use:pure.zsh" "from:github" "as:theme" ];
         }
         {
-          name = "zsh-users/zsh-history-substring-search";
-          tags = [ "from:github" ];
-        }
-        {
-          name = "jimhester/per-directory-history";
-          tags =
-            [ "from:github" "use:zsh-per-directory-history.zsh" ];
-        }
-        {
           name = "chisui/zsh-nix-shell";
           tags = [ "from:github" ];
         }
@@ -96,12 +88,16 @@
     };
 
     initExtra = ''
-      			# Mappings
+	    # Mappings
             ${builtins.readFile ./mappings.zsh}
             # Options
             ${builtins.readFile ./options.zsh}
+            # Compe tweaks
+	    ${builtins.readFile ./compe-tweaks.zsh}
             # Nix Completions
             ${builtins.readFile ./nix-completions.sh}
+	    # Per directory history
+            ${builtins.readFile ./per-directory-history.zsh}
             # SSH Agent
             eval $(ssh-agent -s) > /dev/null
             ssh-add ~/.ssh/github > /dev/null 2>&1

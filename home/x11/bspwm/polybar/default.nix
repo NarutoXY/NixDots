@@ -32,8 +32,8 @@ in {
         "modules-center" = "";
         "modules-right" =
           "round-left mpris pulseaudio round-right empty-space empty-space round-left wlan round-right empty-space empty-space round-left date round-right empty-space round-left powermenu round-right";
-        "font-0" = "VictorMono Nerd Font:style=SemiBold:pixelsize=9;3";
-        "font-1" = "VictorMono Nerd Font:size=14;4";
+        "font-0" = "JetBrainsMono Nerd Font:pixelsize=9;3";
+        "font-1" = "JetBrainsMono Nerd Font:size=14;4";
         "font-2" = "Material Design Icons:style=Bold:size=9;3";
         "font-3" = "unifont:fontformat=truetype:size=9;3";
       };
@@ -76,7 +76,7 @@ in {
 
         "label-focused" = "%icon%";
         # label-focused = %index%
-        "label-focused-foreground" = "${colors.base06}";
+        "label-focused-foreground" = "${colors.base05}";
         "label-focused-background" = "${colors.base01}";
         "label-focused-padding" = 1;
         "label-focused-margin" = 0;

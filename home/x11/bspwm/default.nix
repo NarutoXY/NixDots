@@ -61,7 +61,7 @@ playerctl
   xsession = {
     enable = true;
     # to be able to use system-configured sessions alongside HM ones
-    scriptPath = ".xsession-hm";
+    scriptPath = ".xsession";
     pointerCursor = {
       package = pkgs.bibata-cursors;
       name = "Bibata-Modern-Ice";

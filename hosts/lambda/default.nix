@@ -1,8 +1,5 @@
-{ lib, config, pkgs, inputs, ... }:
-let
-  colors = inputs.nix-colors.colorSchemes.rose-pine;
-in
-with inputs.nix-colors.lib { inherit pkgs; }; {
+{ lib, config, pkgs, ... }:
+{
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
@@ -61,14 +58,10 @@ with inputs.nix-colors.lib { inherit pkgs; }; {
               package = pkgs.bibata-cursors;
               name = "Bibata-Modern-Ice";
             };
-            theme = {
-              name = "${colors.slug}";
-              package = gtkThemeFromScheme { scheme = colors; };
-            };
-          };
-        };
+          }; 
         autoLogin.enable = true;
         autoLogin.user = "naruto";
+	};
       };
       windowManager.bspwm.enable = true;
       desktopManager.xterm.enable = false;
@@ -105,7 +98,7 @@ videoDrivers = [ "intel" ];
 
   users.users.naruto = {
     isNormalUser = true;
-    extraGroups = [ "wheel" ];
+    extraGroups = [ "autologin" "wheel" ];
   };
 
   environment.systemPackages = with pkgs; [ killall coreutils vim ];

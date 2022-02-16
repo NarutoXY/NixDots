@@ -20,7 +20,7 @@ in {
         drun-display-format = "{name}";
       };
 
-      font = "Victor Mono SemiBold 9";
+      font = "Josefin Sans 9";
       theme = let inherit (config.lib.formats.rasi) mkLiteral;
       in {
         "*" = {
@@ -81,7 +81,7 @@ in {
           text-color = mkLiteral "inherit";
         };
         "element selected" = {
-          background-color = mkLiteral "${colors.base06}";
+          background-color = mkLiteral "${colors.base05}";
           text-color = mkLiteral "@bg";
           border-radius = mkLiteral "6px";
         };
