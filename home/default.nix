@@ -10,34 +10,15 @@ let
     inherit pkgs;
     nurpkgs = pkgs;
   };
-	
-	# PACKAGES
-	essentialPkgs = with pkgs; [
-		dconf
-		killall
-		htop
-	];
 
-	networkPkgs = with pkgs; [
-		curl
-		axel
-	];
-	
-	filePkgs = with pkgs; [
-		unzip
-		trash-cli
-		gnome.nautilus
-	];
+  # PACKAGES
+  essentialPkgs = with pkgs; [ dconf killall htop ];
 
-	socialPkgs = with pkgs; [
-		ytmdesktop
-		youtube-dl
-		peek
-	];
+  networkPkgs = with pkgs; [ curl axel ];
 
-	miscGUIPkgs = with pkgs; [
-		xfce.parole
-	];
+  filePkgs = with pkgs; [ unzip trash-cli gnome.nautilus ];
+
+  socialPkgs = with pkgs; [ ytmdesktop youtube-dl peek ];
 
 in with inputs.nix-colors.lib { inherit pkgs; }; {
   # nixpkgs config
@@ -149,7 +130,7 @@ in with inputs.nix-colors.lib { inherit pkgs; }; {
           "network.cookie.thirdparty.nonsecureSessionOnly" = true;
 
           "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
-				};
+        };
         isDefault = true;
       };
       extensions = with nur.repos.rycee.firefox-addons; [
@@ -163,13 +144,13 @@ in with inputs.nix-colors.lib { inherit pkgs; }; {
       ];
     };
     qutebrowser = {
-      enable = false;
+      enable = true;
       aliases = {
         "wq" = "quit --save";
         "w" = "session-save";
         "q" = "quit";
+				"tc" = "tab-close";
       };
-      searchEngines = { DEFAULT = "https://search.brave.com/search?q={}"; };
       settings = {
         colors = {
           # SOURCE: https://github.com/theova/base16-qutebrowser/
@@ -220,7 +201,7 @@ in with inputs.nix-colors.lib { inherit pkgs; }; {
           prompts.bg = "${colors.base00}";
           prompts.selected.bg = "${colors.base02}";
           prompts.selected.fg = "${colors.base05}";
-          statusbar.normal.fg = "${colors.base0B}";
+          statusbar.normal.fg = "${colors.base05}";
           statusbar.normal.bg = "${colors.base00}";
           statusbar.insert.bg = "${colors.base00}";
           statusbar.insert.fg = "${colors.base0D}";
@@ -265,9 +246,9 @@ in with inputs.nix-colors.lib { inherit pkgs; }; {
           tabs.selected.even.bg = "${colors.base02}";
         };
         fonts = {
-          default_family = "JetBrainsMono Nerd Font";
+          default_family = "Cantarell";
           default_size = "14px";
-          web.family.fantasy = "JetBrainsMono Nerd Font";
+          web.family.fantasy = "Cantarell";
         };
         tabs.background = true;
         content.blocking.adblock.lists = [
@@ -309,28 +290,25 @@ in with inputs.nix-colors.lib { inherit pkgs; }; {
         ";" = "set-cmd-text -s :";
       };
     };
-    mpv = {
-      enable = true;
-
-    };
+    mpv = { enable = true; };
     zathura = {
       enable = true;
       options = {
-        font = "JetBrainsMono Nerd Font";
+        font = "Cantarell";
         recolor-darkcolor = "${colors.base00}";
         recolor-lightcolor = "${colors.base05}";
         default-bg = "${colors.base00}";
-        default-fg = "${colors.base01}";
+        default-fg = "${colors.base05}";
         statusbar-bg = "${colors.base01}";
-        statusbar-fg = "${colors.base04}";
+        statusbar-fg = "${colors.base05}";
         inputbar-bg = "${colors.base00}";
-        inputbar-fg = "${colors.base02}";
+        inputbar-fg = "${colors.base05}";
         recolor = true;
       };
     };
   };
 
-  home.packages = essentialPkgs ++ socialPkgs ++ networkPkgs ++ filePkgs ++ miscGUIPkgs;
+  home.packages = essentialPkgs ++ socialPkgs ++ networkPkgs ++ filePkgs;
 }
 
 # vim:set expandtab ft=nix ts=2 sw=2 noet:

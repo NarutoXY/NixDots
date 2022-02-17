@@ -20,7 +20,7 @@ in {
         drun-display-format = "{name}";
       };
 
-      font = "Josefin Sans 9";
+      font = "Victor Mono SemiBold 9";
       theme = let inherit (config.lib.formats.rasi) mkLiteral;
       in {
         "*" = {

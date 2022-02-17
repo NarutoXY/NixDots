@@ -1,13 +1,13 @@
-theme = "rose-pine"
+theme = "rose_pine"
 
 [editor]
 line-number = "relative"
 scrolloff = 5
 
-[editor.cursor-shape]
-insert = "bar"
-normal = "block"
-select = "underline"
+# [editor.cursor-shape]
+# insert = "bar"
+# normal = "block"
+# select = "underline"
 
 [lsp]
 display-messages = true

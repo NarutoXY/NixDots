@@ -1,5 +1,4 @@
-{ lib, config, pkgs, ... }:
-{
+{ lib, config, pkgs, ... }: {
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
@@ -45,27 +44,13 @@
       # desktopManager.default = "none";
       displayManager = {
         defaultSession = "none+bspwm";
-        lightdm = {
-          enable = true;
-          greeters.enso = {
-            enable = true;
-            blur = true;
-            iconTheme = {
-              name = "Zafiro-icons";
-              package = pkgs.zafiro-icons;
-            };
-            cursorTheme = {
-              package = pkgs.bibata-cursors;
-              name = "Bibata-Modern-Ice";
-            };
-          }; 
+        gdm.enable = true;
         autoLogin.enable = true;
         autoLogin.user = "naruto";
-	};
       };
       windowManager.bspwm.enable = true;
       desktopManager.xterm.enable = false;
-videoDrivers = [ "intel" ];
+      videoDrivers = [ "intel" ];
       deviceSection = ''
         Option "DRI" "2"
         Option "TearFree" "true"

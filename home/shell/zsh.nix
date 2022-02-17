@@ -88,20 +88,20 @@
     };
 
     initExtra = ''
-	    # Mappings
-            ${builtins.readFile ./mappings.zsh}
-            # Options
-            ${builtins.readFile ./options.zsh}
-            # Compe tweaks
-	    ${builtins.readFile ./compe-tweaks.zsh}
-            # Nix Completions
-            ${builtins.readFile ./nix-completions.sh}
-	    # Per directory history
-            ${builtins.readFile ./per-directory-history.zsh}
-            # SSH Agent
-            eval $(ssh-agent -s) > /dev/null
-            ssh-add ~/.ssh/github > /dev/null 2>&1
-                      '';
+      	    # Mappings
+                  ${builtins.readFile ./mappings.zsh}
+                  # Options
+                  ${builtins.readFile ./options.zsh}
+                  # Compe tweaks
+      	    ${builtins.readFile ./compe-tweaks.zsh}
+                  # Nix Completions
+                  ${builtins.readFile ./nix-completions.sh}
+      	    # Per directory history
+                  ${builtins.readFile ./per-directory-history.zsh}
+                  # SSH Agent
+                  eval $(ssh-agent -s) > /dev/null
+                  ssh-add ~/.ssh/github > /dev/null 2>&1
+                            '';
     shellAliases = {
       ls = "exa -laHG --icons --git";
       switch = "sudo nixos-rebuild switch --flake ~/.config/nixpkgs";

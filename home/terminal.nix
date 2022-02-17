@@ -61,7 +61,7 @@ in {
   };
 
   programs.kitty = {
-    enable = false;
+    enable = true;
     font.name = font;
     font.size = 12;
     settings = {

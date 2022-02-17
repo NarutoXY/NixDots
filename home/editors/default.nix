@@ -22,10 +22,10 @@ let
   ];
   nixPkgs = with pkgs; [ nixfmt rnix-lsp ];
   goPkgs = with pkgs; [ go gopls ];
-  rustPkgs = with pkgs; [rustup rust-analyzer ];
-  pythonPkgs = with pkgs; [ python311 python311Packages.pip pipenv pyright ];
+  rustPkgs = with pkgs; [ rustup rust-analyzer ];
+  pythonPkgs = with pkgs; [ python310 python310Packages.pip pipenv pyright ];
   gitPkgs = with pkgs; [ github-cli hub ];
-  editorPkgs = with pkgs; [ helix neovim ];
+  editorPkgs = with pkgs; [ helix neovim-nightly ];
   formatterPkgs = with pkgs; [ nodePackages.prettier ];
   lspPkgs = with pkgs; [
     nodePackages.vim-language-server
@@ -39,10 +39,8 @@ in {
   programs.git = {
     enable = true;
     delta.enable = true;
-    extraConfig = { 
-			hub.protocol = "ssh";
-    };
-		ignores = [ "*~" "target" ".node_modules" "*.log" "*.swp" "result" "dist" ];
+    extraConfig = { hub.protocol = "ssh"; };
+    ignores = [ "*~" "target" ".node_modules" "*.log" "*.swp" "result" "dist" ];
     signing = {
       key = "BA2B56A17A1FC0FA";
       signByDefault = true;
@@ -53,6 +51,7 @@ in {
 
   home.file.".config/helix/config.toml".source = ./helix.toml;
 
-  home.packages = luaPkgs ++ webPkgs ++ nixPkgs ++ juliaPkgs ++ goPkgs ++ rustPkgs ++ pythonPkgs ++ gitPkgs
-    ++ lspPkgs ++ editorPkgs ++ formatterPkgs ++ cPkgs;
+  home.packages = luaPkgs ++ webPkgs ++ nixPkgs ++ juliaPkgs ++ goPkgs
+    ++ rustPkgs ++ pythonPkgs ++ gitPkgs ++ lspPkgs ++ editorPkgs
+    ++ formatterPkgs ++ cPkgs;
 }

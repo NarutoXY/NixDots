@@ -44,8 +44,8 @@ in {
       defaultOptions = [
         "--layout=reverse"
         "--multi"
-	"--color=fg:${colors.base05},bg:${colors.base00},current_bg:${colors.base01},info:${colors.base09}"
-	"--bind '?:toggle-preview'"
+        "--color=fg:${colors.base05},bg:${colors.base00},current_bg:${colors.base01},info:${colors.base09}"
+        "--bind '?:toggle-preview'"
         "--bind 'alt-a:select-all'"
         "--bind 'alt-d:deselect-all'"
         "--bind 'alt-e:execute(echo {+} | xargs -o nvim)'"
@@ -59,16 +59,12 @@ in {
     };
     gpg.enable = true;
     ssh.enable = true;
-    
-    exa = {
-        enable = true;
-      };
+
+    exa = { enable = true; };
     bat = {
-        enable = true;
-      	config = {
-		theme = "TwoDark";
-	};
-      };
+      enable = true;
+      config = { theme = "TwoDark"; };
+    };
     jq.enable = true;
   };
 

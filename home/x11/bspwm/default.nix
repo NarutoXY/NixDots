@@ -20,8 +20,8 @@ in {
   # X specific programs
   home.packages = with pkgs; [
     dunst # for dunstctl
-xorg.xinit
-playerctl
+    xorg.xinit
+    playerctl
     xclip
     xorg.xprop
     xdotool
@@ -34,15 +34,13 @@ playerctl
 
   services = {
     screen-locker = {
-        enable = true;
-        inactiveInterval = 1;
-        lockCmd = ''
-	  betterlockscreen -l
-	'';
-        xautolock = {
-            extraOptions = [ "-corners ++++" ];
-          };
-      };
+      enable = true;
+      inactiveInterval = 1;
+      lockCmd = ''
+        betterlockscreen -l
+      '';
+      xautolock = { extraOptions = [ "-corners ++++" ]; };
+    };
     flameshot = {
       enable = true;
       settings = {
@@ -52,7 +50,8 @@ playerctl
           contrastUiColor = colors.base01;
           drawColor = colors.base0D;
           disabledTrayIcon = true;
-          showStartupLaunchMessage = false;};
+          showStartupLaunchMessage = false;
+        };
       };
     };
   };
