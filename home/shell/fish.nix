@@ -44,8 +44,8 @@
       '' +
       # Start ssh agent
       ''
-        eval (ssh-agent -c)
-        ssh-add ~/.ssh/github
+        eval (ssh-agent -c) > /dev/null
+        ssh-add ~/.ssh/github > /dev/null 2>&1
       '' +
       # Use terminal colors
       ''
