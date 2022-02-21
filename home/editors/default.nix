@@ -59,14 +59,6 @@ in {
     settings = {
       theme = "rose_pine";
       lsp.display-messages = true;
-      keys = {
-        normal = {
-          space.space = "file_picker";
-          space.w = ":w";
-          space.q = ":q";
-        };
-        insert = { i.i = "normal_mode"; };
-      };
       editor = {
         scrolloff = 5;
         line-number = "relative";
