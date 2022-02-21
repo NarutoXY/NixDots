@@ -87,7 +87,7 @@ in {
         "mpv" = { desktop = "^4"; };
       };
       startupPrograms =
-        [ "sh ~/.fehbg" "systemctl --user restart polybar.service" ];
+        [ "greenclip daemon" "sh ~/.fehbg" "systemctl --user restart polybar.service" ];
       monitors = { VGA1 = [ "1" "2" "3" "4" "5" ]; };
       settings = {
         border_width = 2;

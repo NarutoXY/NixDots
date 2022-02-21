@@ -20,6 +20,7 @@ let
 
   socialPkgs = with pkgs; [ ytmdesktop youtube-dl peek ];
 
+	browserPkgs = with pkgs; [ vivaldi vivaldi-ffmpeg-codecs vivaldi-widevine ];
 in with inputs.nix-colors.lib { inherit pkgs; }; {
   # nixpkgs config
   nixpkgs = {
@@ -144,12 +145,12 @@ in with inputs.nix-colors.lib { inherit pkgs; }; {
       ];
     };
     qutebrowser = {
-      enable = true;
+      enable = false;
       aliases = {
         "wq" = "quit --save";
         "w" = "session-save";
         "q" = "quit";
-				"tc" = "tab-close";
+        "tc" = "tab-close";
       };
       settings = {
         colors = {
@@ -308,7 +309,7 @@ in with inputs.nix-colors.lib { inherit pkgs; }; {
     };
   };
 
-  home.packages = essentialPkgs ++ socialPkgs ++ networkPkgs ++ filePkgs;
+  home.packages = essentialPkgs ++ browserPkgs ++ socialPkgs ++ networkPkgs ++ filePkgs ++ [ nur.repos.mrcpkgs.eclipse-jdt-language-server ];
 }
 
 # vim:set expandtab ft=nix ts=2 sw=2 noet:

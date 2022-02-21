@@ -9,10 +9,12 @@ in {
     enable = true;
     keybindings = {
       # general
-
+      
+      # clipboard manager
+      "super + c" = "rofi -modi 'clipboard:greenclip print' -show clipboard -run-command '{cmd}'";
       # start terminal
-      "super + Return" = "alacritty";
-      "super + shift + Return" = "kitty";
+      "super + Return" = "alacritty -e fish";
+      "super + shift + Return" = "kitty -e fish";
       # application launcher
       "super + @space" = "rofi -show drun";
       "Menu" = "rofi -show drun";

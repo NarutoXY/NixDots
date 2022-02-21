@@ -25,7 +25,7 @@ let
   rustPkgs = with pkgs; [ rustup rust-analyzer ];
   pythonPkgs = with pkgs; [ python310 python310Packages.pip pipenv pyright ];
   gitPkgs = with pkgs; [ github-cli hub ];
-  editorPkgs = with pkgs; [ helix neovim-nightly ];
+  editorPkgs = with pkgs; [ neovim-nightly ];
   formatterPkgs = with pkgs; [ nodePackages.prettier ];
   lspPkgs = with pkgs; [
     nodePackages.vim-language-server
@@ -33,7 +33,10 @@ let
     nodePackages.dockerfile-language-server-nodejs
   ];
   cPkgs = with pkgs; [ gnumake gcc ];
+  javaPkgs = with pkgs; [ jdk ];
   juliaPkgs = with pkgs; [ julia-stable-bin ];
+  haskellPkgs = with pkgs; [ ghc haskellPackages.ghcide ];
+  otherPkgs = with pkgs; [ sqlite ];
 in {
   ### GIT
   programs.git = {
@@ -49,9 +52,33 @@ in {
     userName = "Astro (Naruto Uzumaki)";
   };
 
-  home.file.".config/helix/config.toml".source = ./helix.toml;
+  ## HELIX
+  # home.file.".config/helix/config.toml".source = ./helix.toml;
+  programs.helix = {
+    enable = true;
+    settings = {
+      theme = "rose_pine";
+      lsp.display-messages = true;
+      keys = {
+        normal = {
+          space.space = "file_picker";
+          space.w = ":w";
+          space.q = ":q";
+        };
+        insert = { i.i = "normal_mode"; };
+      };
+      editor = {
+        scrolloff = 5;
+        line-number = "relative";
+      };
+    };
+  };
+
+  ## NEOVIM STUFF
+  home.file.".config/nvim/sqlite_path".text =
+    "${pkgs.sqlite.out}/lib/libsqlite3.so";
 
   home.packages = luaPkgs ++ webPkgs ++ nixPkgs ++ juliaPkgs ++ goPkgs
     ++ rustPkgs ++ pythonPkgs ++ gitPkgs ++ lspPkgs ++ editorPkgs
-    ++ formatterPkgs ++ cPkgs;
+    ++ formatterPkgs ++ cPkgs ++ javaPkgs ++ haskellPkgs ++ otherPkgs;
 }

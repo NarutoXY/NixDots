@@ -13,12 +13,12 @@ scrolloff = 5
 display-messages = true
 
 # At most one section each of 'keys.normal', 'keys.insert' and 'keys.select'
-[keys.normal]
-C-s = ":w" # Maps the Control-s to the typable command :w which is an alias for :write (save file)
-C-o = ":open ~/.config/helix/config.toml" # Maps the Control-o to opening of the helix config file
-l = { c = "code_action" } # Maps `ga` to show possible code actions
-"ret" = ["open_below", "normal_mode"] # Maps the enter key to open_below then re-enter normal mode
-
-[keys.insert]
-i = { i = "normal_mode" } # Maps `ii` to exit insert mode
-
+# [keys.normal]
+# C-s = ":w" # Maps the Control-s to the typable command :w which is an alias for :write (save file)
+# C-o = ":open ~/.config/helix/config.toml" # Maps the Control-o to opening of the helix config file
+# l = { c = "code_action" } # Maps `ga` to show possible code actions
+# "ret" = ["open_below", "normal_mode"] # Maps the enter key to open_below then re-enter normal mode
+# 
+# [keys.insert]
+# i = { i = "normal_mode" } # Maps `ii` to exit insert mode
+# 

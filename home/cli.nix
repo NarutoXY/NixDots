@@ -69,6 +69,7 @@ in {
   };
 
   home.packages = with pkgs; [
+    haskellPackages.greenclip
     ripgrep
     tealdeer
     hyperfine

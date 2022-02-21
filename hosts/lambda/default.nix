@@ -22,6 +22,7 @@
       dates = "weekly";
       options = "--delete-older-than 1d";
     };
+    trustedUsers = [ "root" "naruto" "@wheel" ];
   };
   nixpkgs.config = { allowUnfree = true; };
   networking = {
@@ -39,8 +40,6 @@
       enable = true;
       layout = "us";
       xkbOptions = "eurosign:e";
-      autorun = false;
-      exportConfiguration = true;
       # desktopManager.default = "none";
       displayManager = {
         defaultSession = "none+bspwm";
