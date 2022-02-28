@@ -7,27 +7,38 @@
       plugins = [
         {
           name = "mafredri/zsh-async";
-          tags = [ "from:github" ];
         }
         {
           name = "sindresorhus/pure";
-          tags = [ "use:pure.zsh" "from:github" "as:theme" ];
+          tags = [ "use:pure.zsh" "as:theme" ];
         }
         {
           name = "chisui/zsh-nix-shell";
-          tags = [ "from:github" ];
+          tags = [ "defer:1" "on:'zsh-users/zsh-completions'" ];
         }
         {
           name = "zsh-users/zsh-syntax-highlighting";
-          tags = [ "from:github" ];
+          tags = [ "defer:3" "on:'zsh-users/zsh-autosuggestions'"];
         }
         {
           name = "zsh-users/zsh-autosuggestions";
-          tags = [ "from:github" ];
+          tags = [ "defer:2" "on:'zsh-users/zsh-completions'" ];
         }
         {
           name = "zsh-users/zsh-completions";
-          tags = [ "from:github" ];
+          tags = [ "defer:0" ];
+        }
+        {
+          name = "spwhitt/nix-zsh-completions";
+          tags = [ "defer:0" ];
+        }
+        {
+          name = "zsh-users/zsh-history-substring-search";
+          tags = [ "defer:3" "on:'zsh-users/zsh-syntax-highlighting'" ];
+        }
+        {
+          name = "Aloxaf/fzf-tab";
+          tags = [ "defer:1" "on:'zsh-users/zsh-completions'" ];
         }
       ];
     };
@@ -46,14 +57,8 @@
     };
 
     initExtra = ''
-      	          # Mappings
-                  ${builtins.readFile ./mappings.zsh}
                   # Options
                   ${builtins.readFile ./options.zsh}
-                  # Compe tweaks
-      	          ${builtins.readFile ./compe-tweaks.zsh}
-                  # Nix Completions
-                  ${builtins.readFile ./nix-completions.sh}
              	    # Per directory history
                   ${builtins.readFile ./per-directory-history.zsh}
                   # SSH Agent
@@ -62,7 +67,7 @@
               '';
     shellAliases = {
       ls = "exa -laHG --icons --git";
-      switch = "nixos-rebuild switch --flake ~/.config/nixpkgs";
+      switch = "sudo nixos-rebuild switch --flake ~/.config/nixpkgs";
       top = "btop";
       v = "nvim";
       nv = "nvim";

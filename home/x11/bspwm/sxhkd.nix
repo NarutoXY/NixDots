@@ -13,8 +13,8 @@ in {
       # clipboard manager
       "super + c" = "rofi -modi 'clipboard:greenclip print' -show clipboard -run-command '{cmd}'";
       # start terminal
-      "super + Return" = "alacritty -e fish";
-      "super + shift + Return" = "kitty -e fish";
+      "super + Return" = "alacritty";
+      "super + shift + Return" = "kitty";
       # application launcher
       "super + @space" = "rofi -show drun";
       "Menu" = "rofi -show drun";

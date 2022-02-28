@@ -43,7 +43,17 @@
       # desktopManager.default = "none";
       displayManager = {
         defaultSession = "none+bspwm";
-        gdm.enable = true;
+        lightdm = {
+          enable = true;
+          greeters.enso = {
+            enable = true;
+            blur = true;
+            cursorTheme = {
+              package = pkgs.bibata-cursors;
+              name = "Bibata-Modern-Ice";
+            };
+          };
+        };
         autoLogin.enable = true;
         autoLogin.user = "naruto";
       };
@@ -62,8 +72,14 @@
       alsa.support32Bit = true;
       pulse.enable = true;
     };
+    flatpak.enable = true;
   };
 
+  xdg.portal = {
+    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+    enable = true;
+  };
+  
   security.rtkit.enable = true;
   sound.enable = true;
   hardware = {
@@ -88,6 +104,9 @@
   environment.systemPackages = with pkgs; [ killall coreutils vim ];
 
   programs.bash.enableCompletion = true;
+  
+  programs.steam.enable = true;
+
   virtualisation = {
     podman = {
       enable = true;
@@ -97,7 +116,7 @@
 
   #### SERVERS ####
   services.postgresql = {
-    enable = true;
+    enable = false;
     ensureUsers = [{ name = "naruto"; }];
     authentication = pkgs.lib.mkOverride 12 ''
       local all all trust

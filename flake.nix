@@ -39,8 +39,11 @@
       extraSpecialArgs = {
         inherit inputs self nurpkgs home-manager;
         nix-colors = inputs.nix-colors.colorSchemes.rose-pine;
-        overlays =
-          [ inputs.neovim-nightly-overlay.overlay inputs.nurpkgs.overlay ];
+        overlays = [
+          inputs.neovim-nightly-overlay.overlay
+          inputs.nurpkgs.overlay
+          (import ./pkgs)
+        ];
       };
     in {
       # inherit self inputs;

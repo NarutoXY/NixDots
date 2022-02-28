@@ -40,7 +40,7 @@
       python.symbol = " ";
       directory.read_only = "  ";
       scan_timeout = 100;
-      sudo.disabled = false;
+      sudo.disabled = true;
       status.disabled = false;
       character = {
         success_symbol = "[](bold green)";

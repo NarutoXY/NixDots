@@ -47,6 +47,10 @@
         eval (ssh-agent -c) > /dev/null
         ssh-add ~/.ssh/github > /dev/null 2>&1
       '' +
+      # Set icons for git status
+      ''
+        set 
+      '' +
       # Use terminal colors
       ''
         set -U fish_color_autosuggestion      brblack

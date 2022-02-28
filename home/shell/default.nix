@@ -12,6 +12,7 @@ in {
   home.sessionVariables = {
     EDITOR = "nvim";
     MANPAGER = "sh -c 'col -bx | bat -l man -p'";
+    SHELL = "zsh";
     # make java apps work in tiling WMs
     _JAVA_AWT_WM_NONREPARENTING = 1;
     VISUAL = "nvim";

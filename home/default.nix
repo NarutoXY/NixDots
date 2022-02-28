@@ -21,6 +21,8 @@ let
   socialPkgs = with pkgs; [ ytmdesktop youtube-dl peek ];
 
 	browserPkgs = with pkgs; [ vivaldi vivaldi-ffmpeg-codecs vivaldi-widevine ];
+	
+	otherPkgs = [ ];
 in with inputs.nix-colors.lib { inherit pkgs; }; {
   # nixpkgs config
   nixpkgs = {
@@ -33,7 +35,8 @@ in with inputs.nix-colors.lib { inherit pkgs; }; {
     ./cli.nix # base config
     ./terminal.nix
     ./x11/bspwm # x11 config
-  ];
+  	./game.nix # games
+	];
 
   gtk = {
     enable = true;
@@ -309,7 +312,7 @@ in with inputs.nix-colors.lib { inherit pkgs; }; {
     };
   };
 
-  home.packages = essentialPkgs ++ browserPkgs ++ socialPkgs ++ networkPkgs ++ filePkgs ++ [ nur.repos.mrcpkgs.eclipse-jdt-language-server ];
+  home.packages = essentialPkgs ++ browserPkgs ++ socialPkgs ++ networkPkgs ++ filePkgs ++ otherPkgs;
 }
 
 # vim:set expandtab ft=nix ts=2 sw=2 noet:
