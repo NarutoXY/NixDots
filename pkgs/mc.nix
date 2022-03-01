@@ -8,14 +8,14 @@
 , makeDesktopItem
 }:
 let
-  version = "2.839";
+  version = "2.841";
   src = stdenv.mkDerivation {
     pname = "tlauncher";
     inherit version;
     src = fetchzip {
-      name = "tlauncher.zip";
+      name = "tlauncher-${version}.zip";
       url = "https://dl2.tlauncher.org/f.php?f=files%2FTLauncher-${version}.zip";
-      sha256 = "sha256-KphpNuTucpuJhXspKxqDyYQN6vbpY0XCB3GAd5YCGbc=";
+      sha256 = "sha256-dmKzny2vrrwnIL67A4dTfrLRmHNKNN2wv6AjQj6T/cU=";
       stripRoot = false;
     };
     installPhase = ''
