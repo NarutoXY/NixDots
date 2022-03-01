@@ -40,28 +40,20 @@
       enable = true;
       layout = "us";
       xkbOptions = "eurosign:e";
-      # desktopManager.default = "none";
       displayManager = {
         defaultSession = "none+bspwm";
-        lightdm = {
+        gdm = {
           enable = true;
-          greeters.enso = {
-            enable = true;
-            blur = true;
-            cursorTheme = {
-              package = pkgs.bibata-cursors;
-              name = "Bibata-Modern-Ice";
-            };
-          };
         };
         autoLogin.enable = true;
         autoLogin.user = "naruto";
       };
       windowManager.bspwm.enable = true;
+      windowManager.awesome.enable = false;
       desktopManager.xterm.enable = false;
       videoDrivers = [ "intel" ];
       deviceSection = ''
-        Option "DRI" "2"
+        Option "DRI" "3"
         Option "TearFree" "true"
       '';
     };
@@ -79,7 +71,7 @@
     extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
     enable = true;
   };
-  
+
   security.rtkit.enable = true;
   sound.enable = true;
   hardware = {
@@ -104,7 +96,7 @@
   environment.systemPackages = with pkgs; [ killall coreutils vim ];
 
   programs.bash.enableCompletion = true;
-  
+
   programs.steam.enable = true;
 
   virtualisation = {

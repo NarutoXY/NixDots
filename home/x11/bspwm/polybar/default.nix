@@ -3,7 +3,8 @@ let
   inherit (self.lib) mapAttrs x;
   colors = mapAttrs (n: v: x v) nix-colors.colors;
   mprisScript = pkgs.callPackage ./mpris.nix { };
-in {
+in
+{
   services.polybar = {
     enable = true;
     package = pkgs.polybarFull;
@@ -103,9 +104,7 @@ in {
       "module/powermenu" = {
         "type" = "custom/text";
 
-        "click-left" =
-          "${pkgs.rofi}/bin/rofi -show power-menu -modi power-menu:${pkgs.rofi-power-menu}/bin/rofi-power-menu";
-
+        "click-left" = "poweroff";
         "content" = " ";
         "content-padding" = 1;
         "content-background" = "${colors.base01}";

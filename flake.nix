@@ -36,16 +36,19 @@
 
   outputs = { self, nixpkgs, home-manager, utils, nurpkgs, ... }@inputs:
     let
+      inherit inputs;
+      colors = inputs.nix-colors.colorSchemes.kanagawa;
       extraSpecialArgs = {
-        inherit inputs self nurpkgs home-manager;
-        nix-colors = inputs.nix-colors.colorSchemes.rose-pine;
+        inherit inputs self colors nurpkgs home-manager;
+        nix-colors = colors;
         overlays = [
           inputs.neovim-nightly-overlay.overlay
           inputs.nurpkgs.overlay
           (import ./pkgs)
         ];
       };
-    in {
+    in
+    {
       # inherit self inputs;
       # System configurations
       # Accessible via 'nixos-rebuild --flake'

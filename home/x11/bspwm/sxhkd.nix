@@ -4,17 +4,18 @@ let
   # user scripts
   s = "~/.local/bin";
   icolors = nix-colors.colors;
-in {
+in
+{
   services.sxhkd = {
     enable = true;
     keybindings = {
       # general
-      
+
       # clipboard manager
       "super + c" = "rofi -modi 'clipboard:greenclip print' -show clipboard -run-command '{cmd}'";
       # start terminal
-      "super + Return" = "alacritty";
-      "super + shift + Return" = "kitty";
+      # "super + {_, shift + }Return" = "{kitty,alacritty}";
+      "super + {_, shift + }Return" = "{alacritty,kitty}";
       # application launcher
       "super + @space" = "rofi -show drun";
       "Menu" = "rofi -show drun";

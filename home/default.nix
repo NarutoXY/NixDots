@@ -22,7 +22,7 @@ let
 
 	browserPkgs = with pkgs; [ vivaldi vivaldi-ffmpeg-codecs vivaldi-widevine ];
 	
-	otherPkgs = [ ];
+	otherPkgs = with pkgs; [ onlyoffice-bin ];
 in with inputs.nix-colors.lib { inherit pkgs; }; {
   # nixpkgs config
   nixpkgs = {
@@ -47,8 +47,10 @@ in with inputs.nix-colors.lib { inherit pkgs; }; {
     };
 
     font = {
-      name = "Cantarell";
-      package = pkgs.cantarell-fonts;
+      name = "Iosevka Aile";
+      package = pkgs.iosevka-bin.override {
+      	variant = "aile";
+      };
     };
 
     theme = {

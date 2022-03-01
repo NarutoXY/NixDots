@@ -32,31 +32,6 @@ in {
   };
 
   programs = {
-    skim = {
-      enable = false;
-      enableZshIntegration = false;
-      defaultCommand =
-        "${pkgs.fd}/bin/fd --hidden --type f --exclude '.git' --exclude '.pnpm-store' --exclude 'node_modules'";
-      changeDirWidgetOptions = [
-        "--preview 'exa --icons --git --color always -T -L 3 {} | head -200'"
-        "--exact"
-      ];
-      defaultOptions = [
-        "--layout=reverse"
-        "--multi"
-        "--color=fg:${colors.base05},bg:${colors.base00},current_bg:${colors.base01},info:${colors.base09}"
-        "--bind '?:toggle-preview'"
-        "--bind 'alt-a:select-all'"
-        "--bind 'alt-d:deselect-all'"
-        "--bind 'alt-e:execute(echo {+} | xargs -o nvim)'"
-        "--height=80%"
-        "--preview-window=:hidden"
-        "--inline-info"
-        "--preview '([[ -f {} ]] && (bat --style=numbers --color=always {} || cat {})) || ([[ -d {} ]] && (tree -C {} | less)) || echo {} 2> /dev/null | head -200'"
-      ];
-      changeDirWidgetCommand =
-        "${pkgs.fd}/bin/fd --type d --hidden --exclude '.git' --exclude '.pnpm-store' --exclude 'node_modules'";
-    };
     fzf = {
       enable = true;
       enableZshIntegration = true;
@@ -67,7 +42,7 @@ in {
         "--exact"
       ];
       defaultOptions = [
-        "--prompt='~ ' --pointer='▶' --marker='✗'"
+        "--prompt='~ '"
         "--layout=reverse"
         "--multi"
         "--sort"

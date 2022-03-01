@@ -4,13 +4,15 @@
 
 let
   inherit (self.lib) mapAttrs x0 x;
-  font = "FiraCode Nerd Font";
-  ifont = "Victor Mono";
+  font = "Iosevka SS09";
+  ifont = "Iosevka SS09";
   acolors = mapAttrs (n: v: x0 v) nix-colors.colors;
   colors = mapAttrs (n: v: x v) nix-colors.colors;
-in {
+in
+{
   programs.alacritty = {
     enable = true;
+    package = pkgs.alacritty-ligatures;
     settings = {
       env = { "TERM" = "xterm-256color"; };
       window = {
@@ -63,7 +65,7 @@ in {
   programs.kitty = {
     enable = true;
     font.name = font;
-    font.size = 12;
+    font.size = 13;
     settings = {
       italic_font = ifont;
       bold_font = ifont;
@@ -74,7 +76,6 @@ in {
       update_check_interval = 0;
 
       # colors
-      background_opacity = "0.7";
       foreground = colors.base05;
       background = colors.base00;
       # selection

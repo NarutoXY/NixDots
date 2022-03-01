@@ -15,7 +15,7 @@ in {
       global = {
         alignment = "center";
         corner_radius = 8;
-        font = "Victor Mono 9";
+        font = "Iosevka Aile 9";
         format = "<b>%s</b>\\n%b";
         width = 300;
         height = 200;

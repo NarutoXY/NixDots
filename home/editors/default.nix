@@ -23,7 +23,7 @@ let
   nixPkgs = with pkgs; [ nixfmt rnix-lsp ];
   goPkgs = with pkgs; [ go gopls ];
   rustPkgs = with pkgs; [ rustup rust-analyzer ];
-  pythonPkgs = with pkgs; [ python310 python310Packages.pip pipenv pyright ];
+  pythonPkgs = with pkgs; [ python3 python3Packages.pip pipenv pyright python-language-server python3Packages.vulture python3Packages.python-lsp-server ];
   gitPkgs = with pkgs; [ github-cli hub ];
   editorPkgs = with pkgs; [ neovim-nightly ];
   formatterPkgs = with pkgs; [ nodePackages.prettier ];
@@ -32,12 +32,13 @@ let
     nodePackages.yaml-language-server
     nodePackages.dockerfile-language-server-nodejs
   ];
-  cPkgs = with pkgs; [ gnumake gcc ];
+  cPkgs = with pkgs; [ gnumake cppcheck clang ];
   javaPkgs = with pkgs; [ jdk ];
   juliaPkgs = with pkgs; [ julia-stable-bin ];
   haskellPkgs = with pkgs; [ ghc haskellPackages.ghcide ];
   otherPkgs = with pkgs; [ sqlite ];
-in {
+in
+{
   ### GIT
   programs.git = {
     enable = true;
